@@ -1,0 +1,20 @@
+h1
+{
+	color : blue;
+	text-align: center;
+} 
+
+h2
+{
+	color : green;
+}
+
+table
+{
+	border: 1px;
+}
+
+body
+{
+	background-color: #AABBCC;
+}
