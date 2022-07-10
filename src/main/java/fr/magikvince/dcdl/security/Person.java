@@ -6,6 +6,11 @@ public abstract class Person {
 	public boolean isOnline;
 	public boolean isRegistered;
 	
+	public Person()
+	{
+		
+	}
+	
 	public Person( String pseudo)
 	{
 		this.pseudo = pseudo;
