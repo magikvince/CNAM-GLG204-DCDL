@@ -1,0 +1,59 @@
+DROP DATABASE if exists `dcdl`;
+
+CREATE DATABASE `dcdl` 
+DEFAULT CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci
+DEFAULT ENCRYPTION='N';
+
+use dcdl;
+
+DROP TABLE if exists T_AUTHOR CASCADE;
+CREATE TABLE T_AUTHOR (
+ id_author NUMERIC(2) NOT NULL PRIMARY KEY,
+ pseudo VARCHAR(30),
+ firstname VARCHAR(30),
+ lastname VARCHAR(30)
+);
+
+DROP TABLE if exists T_LANGUAGE CASCADE;
+
+CREATE TABLE T_LANGUAGE (
+ code_language CHAR(4) NOT NULL PRIMARY KEY,
+ language VARCHAR(30),
+ id_author_fk NUMERIC(2)
+);
+
+DROP TABLE if exists T_WORDTYPE CASCADE;
+
+CREATE TABLE T_WORD_TYPE (
+ id_word_type NUMERIC(2) NOT NULL PRIMARY KEY,
+ word_type VARCHAR(20)
+);
+
+DROP TABLE if exists T_DICTIONARY CASCADE;
+
+CREATE TABLE T_DICTIONARY (
+ id_dictionary NUMERIC(3) NOT NULL PRIMARY KEY,
+ name VARCHAR(30),
+ code_language_fk CHAR(4),
+ id_author_fk NUMERIC(2),
+ description VARCHAR(100)
+);
+
+DROP TABLE if exists T_WORD CASCADE;
+
+CREATE TABLE T_WORD (
+ id_word NUMERIC(6) NOT NULL PRIMARY KEY,
+ word VARCHAR(50),
+ id_dictionary_fk NUMERIC(3),
+ id_author_fk NUMERIC(2),
+ id_word_type_fk NUMERIC(2)
+);
+
+DROP TABLE if exists T_WORD_DEFINITION CASCADE;
+
+CREATE TABLE T_WORD_DEFINITION (
+ id_definition NUMERIC(8) NOT NULL PRIMARY KEY,
+ id_author_fk NUMERIC(2),
+ id_word_fk NUMERIC(6),
+ definition VARCHAR(200)
+);
