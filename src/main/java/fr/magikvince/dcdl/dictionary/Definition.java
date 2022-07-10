@@ -8,15 +8,15 @@ public class Definition {
 	
 	@Id
 	public int idDefinition;
-	public Author author;
-	public Word word;
+	public int idAuthor;
+	public int idWord;
 	public String definition;
 	
 	
-	public Definition (Author author, Word word, String definition)
+	public Definition (int author, int word, String definition)
 	{
-		this.author = author;
-		this.word = word;
+		this.idAuthor = author;
+		this.idWord = word;
 		this.definition = definition;
 	}
 
@@ -31,23 +31,23 @@ public class Definition {
 	}
 
 
-	public Author getAuthor() {
-		return author;
+	public int getIdAuthor() {
+		return idAuthor;
 	}
 
 
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setIdAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
 	}
 
 
-	public Word getWord() {
-		return word;
+	public int getIdWord() {
+		return idWord;
 	}
 
 
-	public void setWord(Word word) {
-		this.word = word;
+	public void setIdWord(int idWord) {
+		this.idWord = idWord;
 	}
 
 
@@ -59,7 +59,6 @@ public class Definition {
 	public void setDefinition(String definition) {
 		this.definition = definition;
 	}
-	
-	
+
 	
 }

@@ -7,23 +7,23 @@ import javax.persistence.Id;
 public class Language {
 
 	@Id
-	public String code;
+	public String codeLanguage;
 	public String language;
-	public Author author;
+	public int IdAuthor;
 	
-	public Language(Author author, String code, String language)
+	public Language(int author, String code, String language)
 	{
-		this.author = author;
-		this.code = code;
+		this.IdAuthor = author;
+		this.codeLanguage = code;
 		this.language = language;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCodeLanguage() {
+		return codeLanguage;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCodeLanguage(String code) {
+		this.codeLanguage = code;
 	}
 
 	public String getLanguage() {
@@ -33,6 +33,15 @@ public class Language {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
+
+	public int getIdAuthor() {
+		return IdAuthor;
+	}
+
+	public void setIdAuthor(int idAuthor) {
+		IdAuthor = idAuthor;
+	}
+	
 	
 	
 }

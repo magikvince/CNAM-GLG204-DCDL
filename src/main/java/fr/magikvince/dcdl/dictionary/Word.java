@@ -11,33 +11,33 @@ public class Word {
 	
 	@Id
 	private int idWord;
-	private Author author;
+	private int idAuthor;
+	private int IdDictionary;
 	private String word;
-	private Dictionary dictionary;
 	private Date creationDate;
 	
-	public Word(Dictionary dictionary, Author author, String word)
+	public Word(int dictionary, int author, String word)
 	{
-		this.setDictionary(dictionary);
-		this.author = author;
+		this.IdDictionary = dictionary;
+		this.idAuthor = author;
 		this.word = word;
 		this.creationDate = new Date();
 	}
 
-	public Author getAuthor() {
-		return author;
+	public int getIdWord() {
+		return idWord;
 	}
 
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setIdWord(int idWord) {
+		this.idWord = idWord;
 	}
 
-	public Dictionary getDictionary() {
-		return dictionary;
+	public int getIdAuthor() {
+		return idAuthor;
 	}
 
-	public void setDictionary(Dictionary dictionary) {
-		this.dictionary = dictionary;
+	public void setIdAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
 	}
 
 	public String getWord() {
@@ -48,6 +48,14 @@ public class Word {
 		this.word = word;
 	}
 
+	public int getIdDictionary() {
+		return IdDictionary;
+	}
+
+	public void setIdDictionary(int idDictionary) {
+		IdDictionary = idDictionary;
+	}
+
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -56,4 +64,5 @@ public class Word {
 		this.creationDate = creationDate;
 	}
 
+	
 }

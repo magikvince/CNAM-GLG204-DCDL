@@ -8,64 +8,50 @@ public class Dictionary {
 	
 	@Id
 	public int idDictionary;
-	public Language language;
-	public Author author;
-	public String dictionaryName;
+	public String codeLanguage;
+	public int idAuthor;
+	public String name;
 	public String description;
 	
-	public Dictionary(Author author, Language language, String dictionaryname, String description)
+	public Dictionary(int author, String language, String name, String description)
 	{
-		this.language = language;
-		this.dictionaryName = dictionaryname;
+		this.idAuthor = author;
+		this.codeLanguage = language;
+		this.name = name;
 		this.description = description;
 	}
 
-
-	
 	public int getIdDictionary() {
 		return idDictionary;
 	}
 
-
 	public void setIdDictionary(int idDictionary) {
 		this.idDictionary = idDictionary;
 	}
-	
-	
 
-	public Author getAuthor() {
-		return author;
+	public String getCodeLanguage() {
+		return codeLanguage;
 	}
 
-
-
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setCodeLanguage(String codeLanguage) {
+		this.codeLanguage = codeLanguage;
 	}
 
-
-
-	public Language getLanguage() {
-		return language;
+	public int getIdAuthor() {
+		return idAuthor;
 	}
 
-	public void setLanguage(Language language) {
-		this.language = language;
+	public void setIdAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
 	}
 
-	
-
-	public String getDictionaryName() {
-		return dictionaryName;
+	public String getName() {
+		return name;
 	}
 
-
-
-	public void setDictionaryName(String dictionaryName) {
-		this.dictionaryName = dictionaryName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-
 
 	public String getDescription() {
 		return description;
@@ -75,5 +61,4 @@ public class Dictionary {
 		this.description = description;
 	}
 
-	
 }
