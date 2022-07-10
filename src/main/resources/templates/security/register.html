@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="style.css" />
-	<title>DCDL</title>
-</head>
-<body>
-	<h1>Welcome on DCDL web application</h1>
+<html xmlns:th="http://www.thymeleaf.org">
 
-	<p> Please fill the form to register on our site.</p>
+<div th:replace="header :: head (title='register form') "></div>
+<body>
+	<h1>Welcome on DCDL web application</h1>	
 	
+	<p>Please fill the form to register to our web site</p>
+	
+	<form method="POST" th:action="@{/register}" th:object="${newPlayer}">
+		<table>
+			<tr>
+				<td><label for="pseudo">pseudo:</label></td>
+				<td><input type="text" id="pseudo" size=30 th:field="*{pseudo}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="firstname">first name:</label></td>
+				<td><input type="text" id="firstname" size=30 th:field="*{firstname}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="lastname">last name:</label></td>
+				<td><input type="text" id="lastname" size=30 th:field="*{lastname}"></input></td>
+			</tr>
+		</table><br>
+		<input type="submit" value="go"></input>
+	</form>
+	<br>
+	
+	
+	<div th:replace="footer :: index"></div>
 	
 </body>
 </html>
