@@ -2,8 +2,14 @@ package fr.magikvince.dcdl.security;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Player extends Person {
 	
+	@Id
+	private int idPlayer;
 	private String firstname;
 	private String lastname;
 	private String email;
@@ -12,14 +18,21 @@ public class Player extends Person {
 	private String country;
 	private String city;
 	
-
-	public Player(String pseudo) {
+		public Player(String pseudo) {
 		super(pseudo);
 		// TODO Auto-generated constructor stub
 	}
 
 	public Player() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public int getIdPlayer() {
+		return idPlayer;
+	}
+
+	public void setIdPlayer(int idPlayer) {
+		this.idPlayer = idPlayer;
 	}
 
 	public String getFirstname() {
