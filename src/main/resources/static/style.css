@@ -18,3 +18,9 @@ body
 {
 	background-color: #AABBCC;
 }
+
+#registerForm
+{
+	left: 50%;
+	text-align : center;
+}
