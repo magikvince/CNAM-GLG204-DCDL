@@ -4,12 +4,16 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-public class Player extends Person {
+@Table(name = "T_PLAYER")
+public class Player {
 	
 	@Id
 	private int idPlayer;
+	public String pseudo;
 	private String firstname;
 	private String lastname;
 	private String email;
@@ -18,13 +22,17 @@ public class Player extends Person {
 	private String country;
 	private String city;
 	
-		public Player(String pseudo) {
-		super(pseudo);
-		// TODO Auto-generated constructor stub
+	@Transient
+	public boolean isOnline;
+	@Transient
+	public boolean isRegistered;
+	
+	public Player(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	public Player() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getIdPlayer() {
@@ -33,6 +41,14 @@ public class Player extends Person {
 
 	public void setIdPlayer(int idPlayer) {
 		this.idPlayer = idPlayer;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	public String getFirstname() {
@@ -89,6 +105,22 @@ public class Player extends Person {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public boolean isOnline() {
+		return isOnline;
+	}
+
+	public void setOnline(boolean isOnline) {
+		this.isOnline = isOnline;
+	}
+
+	public boolean isRegistered() {
+		return isRegistered;
+	}
+
+	public void setRegistered(boolean isRegistered) {
+		this.isRegistered = isRegistered;
 	}
 	
 	

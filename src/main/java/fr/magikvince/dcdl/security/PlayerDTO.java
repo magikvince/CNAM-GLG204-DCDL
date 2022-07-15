@@ -2,8 +2,10 @@ package fr.magikvince.dcdl.security;
 
 import java.util.Date;
 
-public class PlayerDTO extends Person {
+public class PlayerDTO  {
 	
+	private int idPlayer;
+	public String pseudo;
 	private String firstname;
 	private String lastname;
 	private String email;
@@ -14,12 +16,25 @@ public class PlayerDTO extends Person {
 	
 
 	public PlayerDTO(String pseudo) {
-		super(pseudo);
-		// TODO Auto-generated constructor stub
+		this.pseudo = pseudo;
 	}
 
-	public PlayerDTO() {
-		// TODO Auto-generated constructor stub
+	public int getIdPlayer() {
+		return idPlayer;
+	}
+
+
+
+	public void setIdPlayer(int idPlayer) {
+		this.idPlayer = idPlayer;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	public String getFirstname() {

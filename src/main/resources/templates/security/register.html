@@ -7,7 +7,7 @@
 	
 	<p>Please fill the form to register to our web site</p>
 	
-	<form method="POST" th:action="@{/register}" th:object="${newPlayer}">
+	<form class="registerForm" method="POST" th:action="@{/register}" th:object="${newPlayer}">
 		<table>
 			<tr>
 				<td><label for="pseudo">pseudo:</label></td>
@@ -21,11 +21,10 @@
 				<td><label for="lastname">last name:</label></td>
 				<td><input type="text" id="lastname" size=30 th:field="*{lastname}"></input></td>
 			</tr>
-			
-			
+						
 			<tr>
 				<td><label for="email">email:</label></td>
-				<td><input type="text" id="email" size=30 th:field="*{email}"></input></td>
+				<td><input type="email" id="email" size=30 th:field="*{email}"></input></td>
 			</tr>
 			
 			<tr>
@@ -35,7 +34,7 @@
 			
 			<tr>
 				<td><label for="birthdate">birth date:</label></td>
-				<td><input type="text" id="birthdate" size=30 th:field="*{birthdate}"></input></td>
+				<td><input type="date" id="birthdate" size=30 th:field="*{birthdate}"></input></td>
 			</tr>
 			<tr>
 				<td><label for="country">country:</label></td>

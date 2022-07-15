@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PlayerRepository extends CrudRepository<Player, Integer> 	{
 
-	public boolean findByPseudo(String pseudo);
+	public boolean existsByEmail(String email);
+	public Player findByEmail(String email);
+	
 
 }

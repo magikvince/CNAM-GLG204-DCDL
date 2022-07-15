@@ -22,7 +22,7 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String registerPOST(Model model)
 	{
-		Player player = new Player();
+		Player player = (Player) model.getAttribute("newPlayer");
 		try {
 			playerservice.createPlayer(player);
 		} catch (PlayerAlreadyExistException e) {
