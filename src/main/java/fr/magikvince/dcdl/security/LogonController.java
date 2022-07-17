@@ -6,39 +6,40 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 @Controller
 public class LogonController {
 
 	@Autowired
-	PlayerService playerservice;
+	UserService userservice;
 	
 	@GetMapping("/logon")
 	public String logonGET(Model model)
 	{
-		model.addAttribute("loggingPlayer", new Player());
+		model.addAttribute("loggingUser", new User());
 		return "security/logon.html";
 	}
 	
 	@PostMapping("/logon")
-	public String logonPOST(Model model, Player loggingPlayer)
+	public String logonPOST(Model model, User loggingUser)
 	{
 		try {
-			//player found in database with this email
-			Player dbPlayer = playerservice.findPlayer(loggingPlayer.getEmail());
+			//User found in database with this email
+			User dbUser = userservice.findUser(loggingUser.getEmail());
 			
-			if ( dbPlayer.getEmail().equals(loggingPlayer.getEmail()) && dbPlayer.getPassword().equals(loggingPlayer.getPassword() ) )
+			if ( dbUser.getEmail().equals(loggingUser.getEmail()) && dbUser.getPassword().equals(loggingUser.getPassword() ) )
 			{
-				System.out.println("Player " + dbPlayer.getPseudo() + " is successfully logged on !");
-				model.addAttribute("loggingPlayer", dbPlayer);
+				System.out.println("User " + dbUser.getPseudo() + " is successfully logged on !");
+				model.addAttribute("loggingUser", dbUser);
 				
 			}
 			else
 			{
-				System.out.println("bad credentials were provided for account with email " + loggingPlayer.getEmail());
-				model.addAttribute("loggingPlayer", loggingPlayer);
+				System.out.println("bad credentials were provided for account with email " + loggingUser.getEmail());
+				model.addAttribute("loggingPlayer", loggingUser);
 			}
 			
-		} catch (PlayerNotFoundException e) {
+		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

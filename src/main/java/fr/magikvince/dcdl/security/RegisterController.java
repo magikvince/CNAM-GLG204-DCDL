@@ -10,23 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegisterController {
 
 	@Autowired
-	PlayerService playerservice;
+	UserService userservice;
 	
 	@GetMapping("/register")
 	public String registerGET(Model model)
 	{
-		model.addAttribute("newPlayer", new Player());
+		model.addAttribute("newUser", new User());
 		return "security/register.html";
 	}
 	
 	@PostMapping("/register")
 	public String registerPOST(Model model)
 	{
-		Player player = (Player) model.getAttribute("newPlayer");
+		User user = (User) model.getAttribute("newUser");
 		try {
-			playerservice.createPlayer(player);
-		} catch (PlayerAlreadyExistException e) {
-			// TODO Auto-generated catch block
+			userservice.createUser(user);
+		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 		}
 		return "security/register.html";

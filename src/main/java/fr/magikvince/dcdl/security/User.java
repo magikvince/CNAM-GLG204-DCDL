@@ -8,11 +8,11 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "T_PLAYER")
-public class Player {
+@Table(name = "T_USER")
+public class User {
 	
 	@Id
-	private int idPlayer;
+	private int idUser;
 	public String pseudo;
 	private String firstname;
 	private String lastname;
@@ -27,20 +27,20 @@ public class Player {
 	@Transient
 	public boolean isRegistered;
 	
-	public Player(String pseudo) {
+	public User(String pseudo) {
 		this.pseudo = pseudo;
 	}
 
-	public Player() {
+	public User() {
 
 	}
 
-	public int getIdPlayer() {
-		return idPlayer;
+	public int getIdUSer() {
+		return idUser;
 	}
 
-	public void setIdPlayer(int idPlayer) {
-		this.idPlayer = idPlayer;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getPseudo() {
