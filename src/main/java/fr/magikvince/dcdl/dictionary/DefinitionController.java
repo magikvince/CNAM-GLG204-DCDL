@@ -5,18 +5,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class DictionaryController {
+public class DefinitionController {
 
-	@GetMapping("/dictionary")
-	public String dictionaryGET()
+	@GetMapping("/definition")
+	public String definitionGET()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/definition.html";
 	}
 	
-	
-	@PostMapping("/dictionary")
-	public String dictionaryPOST()
+	@PostMapping("/definition")
+	public String definitionPOST()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/definition.html";
 	}
 }

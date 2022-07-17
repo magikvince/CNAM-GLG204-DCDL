@@ -5,18 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class DictionaryController {
+public class AuthorController {
 
-	@GetMapping("/dictionary")
-	public String dictionaryGET()
+	@GetMapping("/author")
+	public String authorGET()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/author.html";
 	}
 	
 	
-	@PostMapping("/dictionary")
-	public String dictionaryPOST()
+	@PostMapping("/author")
+	public String authorPOST()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/author.html";
 	}
 }

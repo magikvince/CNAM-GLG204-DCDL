@@ -5,18 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class DictionaryController {
+public class LanguageController {
 
-	@GetMapping("/dictionary")
-	public String dictionaryGET()
+	@GetMapping("/language")
+	public String languageGET()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/language.html";
 	}
 	
 	
-	@PostMapping("/dictionary")
-	public String dictionaryPOST()
+	@PostMapping("/language")
+	public String languagePOST()
 	{
-		return "dictionary/dictioanry.html";
+		return "dictionary/language.html";
 	}
 }

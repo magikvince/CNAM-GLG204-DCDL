@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="style.css" />
-	<title>manage definitions</title>
-</head>
+
+<div th:replace="header :: head (title='manage definitions') "></div>
 <body>
 	<h1>manage definitions</h1>
 
 	<a href="/findWord">find a word in dictionary</a><br>
 	<a href="/definition">add a new definition</a><br>
+	
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
 </body>
 </html>

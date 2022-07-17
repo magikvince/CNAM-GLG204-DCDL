@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="style.css" />
-	<title>Dictionary</title>
-</head>
+
+<div th:replace="header :: head (title='dictionary admin page') "></div>
 <body>
-	<h1>Welcome on DCDL Dictionary page</h1>
+	<h1>Welcome on DCDL Dictionary admin page</h1>
 
 	<a href="/language">manage language</a><br>
 	<a href="/dictionary">manage dictionary</a><br>
 	<a href="/newWord">manage word</a><br>
 	<a href="/definition">manage definition</a><br>
+	
+	<div th:replace="footer :: index"></div>
 </body>
 </html>
