@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='clubs') "></div>
+<body>
+	<h1>Welcome on DCDL web application</h1>	
+	
+	<p>Besoin d'entraînement avant d'affronter de vrais adversaires en partie officielle?<br>
+	Vous êtes au bon endroit ! :)
+	</p>
+	
+	<a href="/create-club">entraînement aux lettres</a><br>
+	<a href="/find-club">entraînement aux chiffres</a><br>
+	
+	<div th:replace="footer :: index"></div>
+	
+</body>
+</html>

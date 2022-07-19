@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='clubs') "></div>
+<body>
+	<h1>Welcome on DCDL web application</h1>	
+	
+	<p>Envie d'une partie de chiffres et des lettres?<br>
+	Ca se passe par ici ! :)
+	</p>
+	
+	<a href="/create-game">créer une nouvelle partie</a><br>
+	<a href="/list-games">voir les parties existantes</a><br>
+		
+	<div th:replace="footer :: index"></div>
+	
+</body>
+</html>
