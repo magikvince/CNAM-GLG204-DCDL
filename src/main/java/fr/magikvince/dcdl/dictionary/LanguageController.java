@@ -1,6 +1,7 @@
 package fr.magikvince.dcdl.dictionary;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -8,14 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LanguageController {
 
 	@GetMapping("/language")
-	public String languageGET()
+	public String languageGET(Model model)
 	{
+		model.addAttribute("newLanguage", new Language());
 		return "dictionary/language.html";
 	}
 	
 	
 	@PostMapping("/language")
-	public String languagePOST()
+	public String languagePOST(Model model)
 	{
 		return "dictionary/language.html";
 	}
