@@ -20,11 +20,12 @@ public class RegisterController {
 	}
 	
 	@PostMapping("/register")
-	public String registerPOST(Model model)
+	public String registerPOST(Model model, User newUser)
 	{
-		User user = (User) model.getAttribute("newUser");
+		//User user = (User) model.getAttribute("newUser");
 		try {
-			userservice.createUser(user);
+			//userservice.createUser(user);
+			userservice.createUser(newUser);
 		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 		}
