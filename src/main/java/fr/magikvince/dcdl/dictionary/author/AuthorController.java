@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.dictionary;
+package fr.magikvince.dcdl.dictionary.author;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

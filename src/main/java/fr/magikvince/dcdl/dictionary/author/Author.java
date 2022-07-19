@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.dictionary;
+package fr.magikvince.dcdl.dictionary.author;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

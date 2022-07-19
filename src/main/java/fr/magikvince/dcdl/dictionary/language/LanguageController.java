@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.dictionary;
+package fr.magikvince.dcdl.dictionary.language;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
