@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <div th:replace="header :: head (title='dictionary admin page') "></div>
 <body>
@@ -7,9 +7,12 @@
 
 	<a href="/language">manage language</a><br>
 	<a href="/dictionary">manage dictionary</a><br>
-	<a href="/newWord">manage word</a><br>
-	<a href="/definition">manage definition</a><br>
+	<a href="/word">manage word</a><br>
+	<a href="/definition">manage definition</a>
 	
+	<br><br>
+	
+	<div th:replace="footer :: admin"></div>
 	<div th:replace="footer :: index"></div>
 </body>
 </html>

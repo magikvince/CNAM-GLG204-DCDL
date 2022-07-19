@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="style.css" />
@@ -7,10 +7,27 @@
 </head>
 <body>
 	<h1>manage languages</h1>
-
 	
 	<p>Fill the form to add a new language</p>
+
+	<form class="languageForm" method="POST" th:action="@{/language}" th:object="${newLanguage}">
+		<table>
+			<tr>
+				<td><label for="code">code:</label></td>
+				<td><input type="text" id="code" size=30 th:field="*{code}"></input></td>
+			</tr>
+			
+			<tr>
+				<td><label for="language">password:</label></td>
+				<td><input type="text" id="language" size=30 th:field="*{language}"></input></td>
+			</tr>
+			
+		</table><br>
+		<input type="submit" value="go"></input>
+	</form>
+	<br>
 	
+	<br>
 	<div th:replace="footer :: admin"></div>
 	<div th:replace="footer :: index"></div>
 </body>
