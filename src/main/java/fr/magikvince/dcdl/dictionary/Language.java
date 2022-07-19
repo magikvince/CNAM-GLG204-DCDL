@@ -11,6 +11,11 @@ public class Language {
 	public String language;
 	public int IdAuthor;
 	
+	public Language()
+	{
+		
+	}
+	
 	public Language(int author, String code, String language)
 	{
 		this.IdAuthor = author;
