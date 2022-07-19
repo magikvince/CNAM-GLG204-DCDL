@@ -17,7 +17,7 @@ public class LanguageController {
 	
 	
 	@PostMapping("/language")
-	public String languagePOST(Model model)
+	public String languagePOST(Model model, Language newLanguage)
 	{
 		return "dictionary/language.html";
 	}

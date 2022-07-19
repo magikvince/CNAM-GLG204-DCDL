@@ -1,24 +1,34 @@
 package fr.magikvince.dcdl.dictionary.language;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import fr.magikvince.dcdl.dictionary.author.Author;
 
 @Entity
 public class Language {
 
 	@Id
+	@Column(name="code_language")
 	public String codeLanguage;
 	public String language;
-	public int IdAuthor;
+	
+	@ManyToOne
+	@JoinColumn(name="id_author_fk")
+	public Author author;
 	
 	public Language()
 	{
 		
 	}
 	
-	public Language(int author, String code, String language)
+	public Language(Author author, String code, String language)
 	{
-		this.IdAuthor = author;
+		this.author = author;
 		this.codeLanguage = code;
 		this.language = language;
 	}
@@ -39,12 +49,12 @@ public class Language {
 		this.language = language;
 	}
 
-	public int getIdAuthor() {
-		return IdAuthor;
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setIdAuthor(int idAuthor) {
-		IdAuthor = idAuthor;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 	
 	
