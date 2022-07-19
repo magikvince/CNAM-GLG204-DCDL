@@ -8,7 +8,7 @@ use dcdl;
 
 DROP TABLE if exists T_AUTHOR CASCADE;
 CREATE TABLE T_AUTHOR (
- id_author NUMERIC(2) NOT NULL PRIMARY KEY,
+ id_author INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  pseudo VARCHAR(30),
  firstname VARCHAR(30),
  lastname VARCHAR(30)
