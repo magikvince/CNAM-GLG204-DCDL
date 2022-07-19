@@ -8,14 +8,29 @@
 
 <div th:replace="header :: head (title='author') "></div>
 <body>
-	<h1>Welcome on client dictonary web application</h1>
+	<h1>Welcome on client dictionary web application</h1>
 
 	<h2>find an existing author</h2>
 	
 	<p>please fill the following form to add a new author</p>
 	
-	<form>
-	
+	<form class="AuthorForm" method="POST" th:action="@{/author}" th:object="${newAuthor}">
+		<table>
+			<tr>
+				<td><label for="pseudo">pseudo:</label></td>
+				<td><input type="text" id="pseudo" size=30 th:field="*{pseudo}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="firstname">first name:</label></td>
+				<td><input type="text" id="firstname" size=30 th:field="*{firstname}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="lastname">last name:</label></td>
+				<td><input type="text" id="lastname" size=30 th:field="*{lastname}"></input></td>
+			</tr>
+						
+		</table><br>
+		<input type="submit" value="go"></input>
 	</form>
 
 <br>
