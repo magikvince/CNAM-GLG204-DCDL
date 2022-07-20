@@ -6,10 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import fr.magikvince.dcdl.dictionary.author.Author;
 
 @Entity
+@Table(name = "T_LANGUAGE")
 public class Language {
 
 	@Id

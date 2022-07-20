@@ -2,23 +2,39 @@ package fr.magikvince.dcdl.dictionary.dictionary;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import fr.magikvince.dcdl.dictionary.author.Author;
+import fr.magikvince.dcdl.dictionary.language.Language;
 
 @Entity
+@Table(name="T_DICTIONARY")
 public class Dictionary {
 	
 	@Id
 	public int idDictionary;
-	public String codeLanguage;
-	public int idAuthor;
+	
+	@ManyToOne
+	@JoinColumn(name="id_author_fk")
+	public Author author;
+	
+	@ManyToOne
+	@JoinColumn(name="code_language_fk")
+	public Language language;
 	public String name;
 	public String description;
 	
-	public Dictionary(int author, String language, String name, String description)
+	public Dictionary(Author author, Language language, String name, String description)
 	{
-		this.idAuthor = author;
-		this.codeLanguage = language;
+		this.author = author;
+		this.language = language;
 		this.name = name;
 		this.description = description;
+	}
+
+	public Dictionary() {
 	}
 
 	public int getIdDictionary() {
@@ -29,20 +45,20 @@ public class Dictionary {
 		this.idDictionary = idDictionary;
 	}
 
-	public String getCodeLanguage() {
-		return codeLanguage;
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setCodeLanguage(String codeLanguage) {
-		this.codeLanguage = codeLanguage;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
-	public int getIdAuthor() {
-		return idAuthor;
+	public Language getLanguage() {
+		return language;
 	}
 
-	public void setIdAuthor(int idAuthor) {
-		this.idAuthor = idAuthor;
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
 
 	public String getName() {

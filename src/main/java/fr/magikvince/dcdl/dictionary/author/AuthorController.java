@@ -15,6 +15,7 @@ public class AuthorController {
 	public String authorGET(Model model)
 	{
 		model.addAttribute("newAuthor", new Author());
+		model.addAttribute("authors", authorservice.findAllAuthors());
 		return "dictionary/author.html";
 	}
 	
@@ -29,6 +30,6 @@ public class AuthorController {
 			e.printStackTrace();
 		}
 		
-		return "dictionary/author.html";
+		return "redirect:/author";
 	}
 }

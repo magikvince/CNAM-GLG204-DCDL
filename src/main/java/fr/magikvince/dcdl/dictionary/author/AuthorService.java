@@ -1,5 +1,7 @@
 package fr.magikvince.dcdl.dictionary.author;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class AuthorService {
 
 	public Author findAuthor(String pseudo) throws AuthorNotFoundException{
 		return authorRepository.findByPseudo(pseudo);
+	}
+
+	public Collection<Author> findAllAuthors() {
+		// TODO Auto-generated method stub
+		return (Collection<Author>) authorRepository.findAll();
 	}
 
 }

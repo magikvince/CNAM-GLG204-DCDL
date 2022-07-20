@@ -10,7 +10,18 @@
 <body>
 	<h1>Welcome on client dictionary web application</h1>
 
-	<h2>find an existing author</h2>
+	<h2>List of existing author</h2>
+		
+	<table>
+	<tr><th>Pseudo</th><th>First name</th><th>Last name</th></tr>
+	<tr th:each="author : ${authors}">
+		<td th:text = "${author.pseudo}"></td>
+		<td th:text = "${author.firstname}"></td>
+		<td th:text = "${author.lastname}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
 	
 	<p>please fill the following form to add a new author</p>
 	

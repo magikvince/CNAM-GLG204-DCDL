@@ -3,12 +3,44 @@
 
 <div th:replace="header :: head (title='dictionary admin page') "></div>
 <body>
-	<h1>Welcome on DCDL Dictionary admin page</h1>
+	<h1>Welcome on client dictionary web application</h1>
 
-	<a href="/language">manage language</a><br>
-	<a href="/dictionary">manage dictionary</a><br>
-	<a href="/word">manage word</a><br>
-	<a href="/definition">manage definition</a>
+	<h2>List of existing dictionaries</h2>
+
+	<table>
+	<tr><th>Author</th><th>Language</th><th>Name</th><th>Description</th></tr>
+	<tr th:each="dictionary : ${dictionaries}">
+		<td th:text = "${dictionary.author.pseudo}"></td>
+		<td th:text = "${dictionary.language.language}"></td>
+		<td th:text = "${dictionary.name}"></td>
+		<td th:text = "${dictionary.description}"></td>
+	</tr> 
+	</table>
+	
+	<p>please fill the following form to add a new author</p>
+	
+	<form class="DictionaryForm" method="POST" th:action="@{/dictionary}" th:object="${newDictionary}">
+		<table>
+			<tr>
+				<td><label for="author">author:</label></td>
+				<td><input type="text" id="author" size=30 th:field="*{author}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="language">language:</label></td>
+				<td><input type="text" id="language" size=30 th:field="*{language}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="name">name:</label></td>
+				<td><input type="text" id="name" size=30 th:field="*{name}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="description">description:</label></td>
+				<td><input type="text" id="description" size=30 th:field="*{description}"></input></td>
+			</tr>
+						
+		</table><br>
+		<input type="submit" value="go"></input>
+	</form>
 	
 	<br><br>
 	
