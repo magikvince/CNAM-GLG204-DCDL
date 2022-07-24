@@ -23,6 +23,7 @@ public class Dictionary {
 	@ManyToOne
 	@JoinColumn(name="code_language_fk")
 	public Language language;
+	
 	public String name;
 	public String description;
 	

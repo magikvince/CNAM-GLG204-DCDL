@@ -17,7 +17,9 @@ public class Language {
 	@Id
 	@Column(name="code_language")
 	public String codeLanguage;
-	public String language;
+	
+	@Column(name="language")
+	public String textLanguage;
 	
 	@ManyToOne
 	@JoinColumn(name="id_author_fk")
@@ -32,33 +34,34 @@ public class Language {
 	{
 		this.author = author;
 		this.codeLanguage = code;
-		this.language = language;
+		this.textLanguage = language;
 	}
 
 	public String getCodeLanguage() {
-		return codeLanguage;
+		return this.codeLanguage;
 	}
 
-	public void setCodeLanguage(String code) {
-		this.codeLanguage = code;
+	public void setCodeLanguage(String codeLanguage) {
+		this.codeLanguage = codeLanguage;
 	}
 
-	public String getLanguage() {
-		return language;
+	
+	
+	public String getTextLanguage() {
+		return textLanguage;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setTextLanguage(String textLanguage) {
+		this.textLanguage = textLanguage;
 	}
 
 	public Author getAuthor() {
-		return author;
+		return this.author;
 	}
 
 	public void setAuthor(Author author) {
 		this.author = author;
 	}
-	
-	
+
 	
 }
