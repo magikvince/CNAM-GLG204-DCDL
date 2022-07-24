@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DictionaryRepository extends CrudRepository<Dictionary, Integer> 	{
 
-	public boolean existsByPseudo(String email);
-	public Dictionary findByPseudo(String email);
+	public boolean existsByName(String name);
+	public Dictionary findByName(String name);
 }
