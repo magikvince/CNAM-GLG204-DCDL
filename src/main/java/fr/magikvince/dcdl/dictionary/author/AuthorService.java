@@ -5,8 +5,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.magikvince.dcdl.game.play.Player;
-
 @Service
 public class AuthorService {
 	
