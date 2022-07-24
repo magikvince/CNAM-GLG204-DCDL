@@ -1,12 +1,12 @@
 package fr.magikvince.dcdl.dictionary.language;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.magikvince.dcdl.game.play.Player;
-
 @Service
-public class LangugeService {
+public class LanguageService {
 	
 	@Autowired 
 	LanguageRepository languageRepository;
@@ -21,6 +21,11 @@ public class LangugeService {
 
 	public Language findLanguage(String codeLanguage) throws LanguageNotFoundException{
 		return languageRepository.findByCodeLanguage(codeLanguage);
+	}
+	
+	public Collection<Language> findAllLanguage() {
+		// TODO Auto-generated method stub
+		return (Collection<Language>) languageRepository.findAll();
 	}
 
 }
