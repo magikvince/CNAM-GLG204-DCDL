@@ -5,10 +5,26 @@
 <body>
 	<h1>manage words</h1>
 
-	<a href="/definition">manage definition</a><br>
-	<a href="/findWord">find a word in dictionary</a><br>
+	<a href="/findWord" >find a word in dictionary</a><br>
 	<a href="/listWords">show list of words in dictionary</a><br>
 	<a href="/countWords">count words in dictionary</a>
+	
+	<h2>List of existing words</h2>
+
+	<table >
+	<tr><th>Id</th><th>Author</th><th>Dictionary</th><th>word</th><th>Description</th><th>creation date</th></tr>
+	<tr th:each="word : ${words}">
+		<td th:text = "${word.id}"></td>
+		<td th:text = "${word.author.pseudo}"></td>
+		<td th:text = "${word.dictionary}"></td>
+		<td th:text = "${word.name}"></td>
+		<td th:text = "${word.description}"></td>
+	</tr> 
+	</table>
+	
+	<p>please fill the following form to add a new author</p>
+	
+	
 	
 	<br><br>
 	<div th:replace="footer :: admin"></div>
