@@ -18,6 +18,10 @@ public class DictionaryController {
 	@Autowired
 	LanguageService languageservice;
 	
+	@Autowired
+	DictionaryService dictionaryservice;
+	
+	
 	@GetMapping("/dictionary")
 	public String dictionaryGET(Model model)
 	{
@@ -30,8 +34,15 @@ public class DictionaryController {
 	
 	
 	@PostMapping("/dictionary")
-	public String dictionaryPOST(Model model)
+	public String dictionaryPOST(Model model, Dictionary newDictionary)
 	{
-		return "dictionary/dictionary.html";
+		try {
+			dictionaryservice.createDictionary(newDictionary);
+		} catch (DictionaryAlreadyExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "redirect:/dictionary";
 	}
 }
