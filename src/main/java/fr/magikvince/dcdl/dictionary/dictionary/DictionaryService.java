@@ -13,14 +13,14 @@ public class DictionaryService {
 
 	public void createDictionary(Dictionary dictionary) throws DictionaryAlreadyExistException {
 		// 
-		if ( ! dictionaryRepository.existsByPseudo(author.getPseudo() ) )
-			dictionaryRepository.save(author);
+		if ( ! dictionaryRepository.existsByName(dictionary.getName() ) )
+			dictionaryRepository.save(dictionary);
 		else
 			throw new DictionaryAlreadyExistException();
 	}
 
-	public Author findAuthor(String pseudo) throws AuthorNotFoundException{
-		return dictionaryRepository.findByPseudo(pseudo);
+	public Dictionary findDictionary(String name) throws DictionaryNotFoundException{
+		return dictionaryRepository.findByName(name);
 	}
 
 	public Collection<Dictionary> findAllDictionaries() {
