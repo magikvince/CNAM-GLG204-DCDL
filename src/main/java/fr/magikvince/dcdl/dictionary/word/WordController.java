@@ -1,22 +1,46 @@
 package fr.magikvince.dcdl.dictionary.word;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import fr.magikvince.dcdl.dictionary.author.AuthorService;
+import fr.magikvince.dcdl.dictionary.dictionary.DictionaryService;
+import fr.magikvince.dcdl.dictionary.language.Language;
+
 @Controller
 public class WordController {
+	
+	@Autowired
+	AuthorService authorservice;
+	
+	@Autowired
+	DictionaryService dictionaryservice;
+	
+	@Autowired
+	WordService wordservice;
 
 	@GetMapping("/word")
-	public String wordGET()
+	public String wordGET(Model model)
 	{
+		model.addAttribute("newWord", new Word());
+		model.addAttribute("authors", authorservice.findAllAuthors());
+		model.addAttribute("dictionaries", dictionaryservice.findAllDictionaries());
 		return "dictionary/word.html";
 	}
 	
 	
 	@PostMapping("/word")
-	public String wordPOST()
+	public String wordPOST(Model model, Word newWord)
 	{
-		return "dictionary/word.html";
+		try {
+			wordservice.createWord(newWord);
+		} catch (WordAlreadyExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:/word";
 	}
 }
