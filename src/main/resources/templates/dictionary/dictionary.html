@@ -27,7 +27,7 @@
 				<td><label for="author">author:</label></td>
 				<td><select th:field="*{author}" id=author >
 						<option th:each="author : ${authors}"
-							th:value="${author}" 
+							th:value="${author.idAuthor}" 
 							th:text = "${author.pseudo} + ' : ' +  ${author.firstname} + ' ' + ${author.lastname}">author1
 						</option>
 					</select>
@@ -36,10 +36,10 @@
 			
 			<tr>
 				<td><label for="language">language:</label></td>
-				<td><select th:field="*{language}" id=language size=30>
+				<td><select th:field="*{language}" id=language >
 						<option th:each="language : ${languages}"
-							th:value="${language}" 
-							th:text = "${language.codeLanguage} + ' : '  ${language.textLanguage}">language1
+							th:value="${language.codeLanguage}" 
+							th:text = "${language.codeLanguage} + ' : ' + ${language.textLanguage}">language1
 						</option>
 					</select>
 				</td>
