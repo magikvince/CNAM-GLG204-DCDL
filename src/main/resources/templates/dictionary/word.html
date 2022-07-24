@@ -40,7 +40,7 @@
 			
 			<tr>
 				<td><label for="dictionary">dictionary:</label></td>
-				<td><select th:field="*{dictioanry}" id=dictionary >
+				<td><select th:field="*{dictionary}" id=dictionary >
 						<option th:each="dictionary : ${dictionaries}"
 							th:value="${dictionary}" 
 							th:text = "${dictionary.name} + ' : '  ${dictionary.description}">dictionary
