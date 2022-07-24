@@ -8,20 +8,44 @@
 <body>
 	<h1>manage languages</h1>
 	
+	<h2>List of existing languages</h2>
+		
+	<table>
+	<tr><th>Author</th><th>code Language</th><th>Language</th></tr>
+	<tr th:each="language : ${languages}">
+		<td th:text = "${language.author.pseudo}"></td>
+		<td th:text = "${language.codeLanguage}"></td>
+		<td th:text = "${language.textLanguage}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	
 	<p>Fill the form to add a new language</p>
 
 	<form class="languageForm" method="POST" th:action="@{/language}" th:object="${newLanguage}">
 		<table>
 			<tr>
+				<td><label for="author">author:</label></td>
+				<td><select th:field="*{author}" id=author >
+						<option th:each="author : ${authors}"
+							th:value="${author}" 
+							th:text = "${author.pseudo} + ' : ' +  ${author.firstname} + ' ' + ${author.lastname}">author1
+						</option>
+					</select>
+				</td>
+			</tr>
+		
+			<tr>
 				<td><label for="code">code language:</label></td>
-				<td><input type="text" id="code" size=30 th:field="*{codeLanguage}">FR</input></td>
+				<td><input type="text" id="code" size=30 th:field="*{codeLanguage}"></input></td>
 			</tr>
 			
 			<tr>
-				<td><label for="language">password:</label></td>
-				<td><input type="text" id="language" size=30 th:field="*{language}">Français</input></td>
+				<td><label for="textlanguage">language:</label></td>
+				<td><input type="text" id="textLanguage" size=30 th:field="*{textLanguage}"></input></td>
 			</tr>
-			
+	
 		</table><br>
 		<input type="submit" value="go"></input>
 	</form>
