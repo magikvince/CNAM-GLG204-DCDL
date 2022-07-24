@@ -9,9 +9,8 @@ h2
 	color : green;
 }
 
-table
-{
-	border: 1px;
+table, th, td {
+  border: 1px solid;
 }
 
 body
