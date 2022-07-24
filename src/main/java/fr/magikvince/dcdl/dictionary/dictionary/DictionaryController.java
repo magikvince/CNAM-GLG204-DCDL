@@ -1,17 +1,30 @@
 package fr.magikvince.dcdl.dictionary.dictionary;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import fr.magikvince.dcdl.dictionary.author.AuthorService;
+import fr.magikvince.dcdl.dictionary.language.LanguageService;
+
 @Controller
 public class DictionaryController {
 
+	@Autowired
+	AuthorService authorservice;
+	
+	@Autowired
+	LanguageService languageservice;
+	
 	@GetMapping("/dictionary")
 	public String dictionaryGET(Model model)
 	{
 		model.addAttribute("newDictionary", new Dictionary());
+		model.addAttribute("authors", authorservice.findAllAuthors());
+		model.addAttribute("languages", languageservice.findAllLanguage());
+		
 		return "dictionary/dictionary.html";
 	}
 	
