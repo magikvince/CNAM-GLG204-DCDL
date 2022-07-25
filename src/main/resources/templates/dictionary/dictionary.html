@@ -8,11 +8,12 @@
 	<h2>List of existing dictionaries</h2>
 
 	<table >
-	<tr><th>Id</th><th>Author</th><th>Language</th><th>Name</th><th>Description</th></tr>
+	<tr><th>Id</th><th>Author</th><th>code Language</th><th>Text Language</th><th>Name</th><th>Description</th></tr>
 	<tr th:each="dictionary : ${dictionaries}">
 		<td th:text = "${dictionary.idDictionary}"></td>
 		<td th:text = "${dictionary.author.pseudo}"></td>
-		<td th:text = "${dictionary.language.language}"></td>
+		<td th:text = "${dictionary.language.codeLanguage}"></td>
+		<td th:text = "${dictionary.language.textLanguage}"></td>
 		<td th:text = "${dictionary.name}"></td>
 		<td th:text = "${dictionary.description}"></td>
 	</tr> 

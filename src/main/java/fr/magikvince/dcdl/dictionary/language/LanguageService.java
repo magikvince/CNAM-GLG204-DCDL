@@ -23,7 +23,7 @@ public class LanguageService {
 		return languageRepository.findByCodeLanguage(codeLanguage);
 	}
 	
-	public Collection<Language> findAllLanguage() {
+	public Collection<Language> findAllLanguages() {
 		// TODO Auto-generated method stub
 		return (Collection<Language>) languageRepository.findAll();
 	}
