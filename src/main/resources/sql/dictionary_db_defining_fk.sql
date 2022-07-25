@@ -1,4 +1,5 @@
 /* defining foreign keys */
+use dcdl;
 
 ALTER TABLE `dcdl`.`t_language` 
 ADD CONSTRAINT `id_author_fk`
@@ -35,5 +36,4 @@ ADD CONSTRAINT `id_author_fk_t_word_def`
   
   /* inserting default values */
   INSERT INTO `dcdl`.`t_language` (`code_language`, `language`) VALUES ('FR','Français');
-  INSERT INTO `dcdl`.`t_dictionary`(`id_dictionary`,`name`,`code_language_fk`,`description`)
-  VALUES (1,'FRENCH DICTIONARY','FR','french dictionnary');
+  INSERT INTO `dcdl`.`t_dictionary`(`id_dictionary`,`name`,`code_language_fk`,`description`) VALUES (1,'FRENCH DICTIONARY','FR','french dictionnary');

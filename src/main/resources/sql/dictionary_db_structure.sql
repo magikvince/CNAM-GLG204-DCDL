@@ -9,7 +9,7 @@ use dcdl;
 DROP TABLE if exists T_AUTHOR CASCADE;
 CREATE TABLE T_AUTHOR (
  id_author INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- pseudo VARCHAR(30),
+ pseudo VARCHAR(30) NOT NULL,
  firstname VARCHAR(30),
  lastname VARCHAR(30)
 );
@@ -17,25 +17,25 @@ CREATE TABLE T_AUTHOR (
 DROP TABLE if exists T_LANGUAGE CASCADE;
 
 CREATE TABLE T_LANGUAGE (
- code_language CHAR(4) NOT NULL PRIMARY KEY,
- language VARCHAR(30),
- id_author_fk NUMERIC(2)
+ code_language VARCHAR(4) NOT NULL PRIMARY KEY,
+ language VARCHAR(30) NOT NULL,
+ id_author_fk INT
 );
 
 DROP TABLE if exists T_WORDTYPE CASCADE;
 
 CREATE TABLE T_WORD_TYPE (
  id_word_type INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- word_type VARCHAR(20)
+ word_type VARCHAR(20) NOT NULL
 );
 
 DROP TABLE if exists T_DICTIONARY CASCADE;
 
 CREATE TABLE T_DICTIONARY (
  id_dictionary INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- name VARCHAR(30),
- code_language_fk CHAR(4),
- id_author_fk NUMERIC(2),
+ name VARCHAR(30) NOT NULL,
+ code_language_fk VARCHAR(4),
+ id_author_fk INT,
  description VARCHAR(100)
 );
 
@@ -43,17 +43,17 @@ DROP TABLE if exists T_WORD CASCADE;
 
 CREATE TABLE T_WORD (
  id_word INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- word VARCHAR(50),
- id_dictionary_fk NUMERIC(3),
- id_author_fk NUMERIC(2),
- id_word_type_fk NUMERIC(2)
+ word VARCHAR(50) NOT NULL,
+ id_dictionary_fk INT,
+ id_author_fk INT,
+ id_word_type_fk INT
 );
 
 DROP TABLE if exists T_WORD_DEFINITION CASCADE;
 
 CREATE TABLE T_WORD_DEFINITION (
  id_definition INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- id_author_fk NUMERIC(2),
- id_word_fk NUMERIC(6),
+ id_author_fk INT,
+ id_word_fk INT,
  definition VARCHAR(200)
 );

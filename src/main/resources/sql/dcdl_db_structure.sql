@@ -5,7 +5,7 @@ DROP TABLE if exists T_PLAYER CASCADE;
 CREATE TABLE T_PLAYER (
  id_player INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  id_user_fk INT,
- pseudo VARCHAR(30),
+ pseudo VARCHAR(30) NOT NULL,
  league_rank INT,
  league_score INT
 );
