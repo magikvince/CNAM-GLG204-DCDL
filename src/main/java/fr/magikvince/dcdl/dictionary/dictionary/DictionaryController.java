@@ -28,6 +28,7 @@ public class DictionaryController {
 		model.addAttribute("newDictionary", new Dictionary());
 		model.addAttribute("authors", authorservice.findAllAuthors());
 		model.addAttribute("languages", languageservice.findAllLanguage());
+		model.addAttribute("dictionaries", dictionaryservice.findAllDictionaries());
 		
 		return "dictionary/dictionary.html";
 	}
