@@ -10,7 +10,7 @@
 	<table >
 	<tr><th>Id</th><th>Author</th><th>Language</th><th>Name</th><th>Description</th></tr>
 	<tr th:each="dictionary : ${dictionaries}">
-		<td th:text = "${dictionary.id}"></td>
+		<td th:text = "${dictionary.idDictionary}"></td>
 		<td th:text = "${dictionary.author.pseudo}"></td>
 		<td th:text = "${dictionary.language.language}"></td>
 		<td th:text = "${dictionary.name}"></td>
