@@ -22,7 +22,7 @@ public class LanguageController {
 	{
 		model.addAttribute("newLanguage", new Language());
 		model.addAttribute("authors", authorservice.findAllAuthors());
-		model.addAttribute("languages", languageservice.findAllLanguage());
+		model.addAttribute("languages", languageservice.findAllLanguages());
 		return "dictionary/language.html";
 	}
 	
