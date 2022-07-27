@@ -12,11 +12,12 @@
 	<h2>List of existing words</h2>
 
 	<table >
-	<tr><th>Id</th><th>Author</th><th>Dictionary</th><th>Text word</th><th>Creation date</th></tr>
+	<tr><th>Id</th><th>Author</th><th>Dictionary</th><th>Gender</th><th>Text word</th><th>Creation date</th></tr>
 	<tr th:each="word : ${words}">
 		<td th:text = "${word.idWord}"></td>
 		<td th:text = "${word.author.pseudo}"></td>
 		<td th:text = "${word.dictionary.name}"></td>
+		<td th:text = "${word.gender}"></td>
 		<td th:text = "${word.textWord}"></td>
 		<td th:text = "${word.creationDate}"></td>
 	</tr> 
@@ -44,6 +45,17 @@
 						<option th:each="dictionary : ${dictionaries}"
 							th:value="${dictionary.idDictionary}" 
 							th:text = "${dictionary.name} + ' : ' + ${dictionary.description}">dictionary
+						</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label for="gender">gender:</label></td>
+				<td><select th:field="*{gender}" id=gender >
+						<option th:each="gender : ${genders}"
+							th:value="${gender}" 
+							th:text = "${gender} ">genre
 						</option>
 					</select>
 				</td>
