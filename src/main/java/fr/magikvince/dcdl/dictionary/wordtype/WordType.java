@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import fr.magikvince.dcdl.dictionary.author.Author;
 import fr.magikvince.dcdl.dictionary.language.Language;
 
 @Entity
@@ -16,9 +17,11 @@ public class WordType {
 	@Id
 	private int idWordType;
 	
+	private Author author;
+	private Language language;
 	private String textWordType;
 	
-	private Language language;
+	
 	
 	public WordType()
 	{
@@ -32,13 +35,13 @@ public class WordType {
 	public void setIdWordType(int idWordType) {
 		this.idWordType = idWordType;
 	}
-
-	public String getTextWordType() {
-		return textWordType;
+	
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setTextWordType(String textWordType) {
-		this.textWordType = textWordType;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 	public Language getLanguage() {
@@ -48,5 +51,15 @@ public class WordType {
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
+
+
+	public String getTextWordType() {
+		return textWordType;
+	}
+
+	public void setTextWordType(String textWordType) {
+		this.textWordType = textWordType;
+	}
+
 	
 }
