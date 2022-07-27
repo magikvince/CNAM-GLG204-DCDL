@@ -12,13 +12,13 @@
 	<h2>List of existing words</h2>
 
 	<table >
-	<tr><th>Id</th><th>Author</th><th>Dictionary</th><th>word</th><th>Description</th><th>creation date</th></tr>
+	<tr><th>Id</th><th>Author</th><th>Dictionary</th><th>Text word</th><th>Creation date</th></tr>
 	<tr th:each="word : ${words}">
-		<td th:text = "${word.id}"></td>
+		<td th:text = "${word.idWord}"></td>
 		<td th:text = "${word.author.pseudo}"></td>
-		<td th:text = "${word.dictionary}"></td>
-		<td th:text = "${word.name}"></td>
-		<td th:text = "${word.description}"></td>
+		<td th:text = "${word.dictionary.name}"></td>
+		<td th:text = "${word.textWord}"></td>
+		<td th:text = "${word.creationDate}"></td>
 	</tr> 
 	</table>
 	
@@ -51,7 +51,7 @@
 		
 			<tr>
 				<td><label for="word">word:</label></td>
-				<td><input type="text" id="name" size=30 th:field="*{word}"></input></td>
+				<td><input type="text" id="word" size=30 th:field="*{textWord}"></input></td>
 			</tr>
 						
 		</table><br>
