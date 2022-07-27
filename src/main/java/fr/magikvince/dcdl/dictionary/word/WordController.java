@@ -28,6 +28,7 @@ public class WordController {
 		model.addAttribute("newWord", new Word());
 		model.addAttribute("authors", authorservice.findAllAuthors());
 		model.addAttribute("dictionaries", dictionaryservice.findAllDictionaries());
+		model.addAttribute("genders", Gender.values());
 		return "dictionary/word.html";
 	}
 	
