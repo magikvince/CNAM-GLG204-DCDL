@@ -26,6 +26,7 @@ DROP TABLE if exists T_WORDTYPE CASCADE;
 
 CREATE TABLE T_WORD_TYPE (
  id_word_type INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id_author_fk INT,
  code_language_fk VARCHAR(4),
  word_type VARCHAR(20) NOT NULL
 );
