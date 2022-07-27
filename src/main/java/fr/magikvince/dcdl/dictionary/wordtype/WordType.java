@@ -15,7 +15,9 @@ public class WordType {
 	
 	@Id
 	private int idWordType;
-	private String wordType;
+	
+	private String textWordType;
+	
 	private Language language;
 	
 	public WordType()
@@ -31,12 +33,12 @@ public class WordType {
 		this.idWordType = idWordType;
 	}
 
-	public String getWordType() {
-		return wordType;
+	public String getTextWordType() {
+		return textWordType;
 	}
 
-	public void setWordType(String wordType) {
-		this.wordType = wordType;
+	public void setTextWordType(String textWordType) {
+		this.textWordType = textWordType;
 	}
 
 	public Language getLanguage() {
