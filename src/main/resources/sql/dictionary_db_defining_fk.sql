@@ -25,6 +25,11 @@ ADD CONSTRAINT `id_word_type_fk`
   FOREIGN KEY (`id_word_type_fk`)
   REFERENCES `dcdl`.`t_word_type` (`id_word_type`);
 
+ALTER TABLE `dcdl`.`t_word_type` 
+ADD CONSTRAINT `code_language_fk_t_word_type`
+  FOREIGN KEY (`code_language_fk`)
+  REFERENCES `dcdl`.`t_language` (`code_language`);
+
 ALTER TABLE `dcdl`.`t_word_definition` 
 ADD CONSTRAINT `id_word_fk`
   FOREIGN KEY (`id_word_fk`)

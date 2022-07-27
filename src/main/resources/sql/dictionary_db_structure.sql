@@ -26,6 +26,7 @@ DROP TABLE if exists T_WORDTYPE CASCADE;
 
 CREATE TABLE T_WORD_TYPE (
  id_word_type INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ code_language_fk VARCHAR(4),
  word_type VARCHAR(20) NOT NULL
 );
 
@@ -43,10 +44,12 @@ DROP TABLE if exists T_WORD CASCADE;
 
 CREATE TABLE T_WORD (
  id_word INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- word VARCHAR(50) NOT NULL,
  id_dictionary_fk INT,
  id_author_fk INT,
- id_word_type_fk INT
+ id_word_type_fk INT,
+ gender VARCHAR(8),
+ word VARCHAR(50) NOT NULL, 
+ creation_date DATETIME
 );
 
 DROP TABLE if exists T_WORD_DEFINITION CASCADE;
