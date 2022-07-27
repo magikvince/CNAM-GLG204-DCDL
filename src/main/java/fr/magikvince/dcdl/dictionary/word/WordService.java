@@ -13,14 +13,14 @@ public class WordService {
 
 	public void createWord(Word word) throws WordAlreadyExistException {
 		// 
-		if ( ! wordRepository.existsByWord(word.getWord() ) )
+		if ( ! wordRepository.existsByTextWord(word.getTextWord() ) )
 			wordRepository.save(word);
 		else
 			throw new WordAlreadyExistException();
 	}
 
 	public Word findWordByWord(String word) throws WordNotFoundException{
-		return wordRepository.findByWord(word);
+		return wordRepository.findByTextWord(word);
 	}
 	
 	public Collection<Word> findAllWords() {

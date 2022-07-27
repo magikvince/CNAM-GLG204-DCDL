@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WordRepository extends CrudRepository<Word, Integer> 	{
 
-	public boolean existsByWord(String word);
-	public Word findByWord(String word);
+	public boolean existsByTextWord(String word);
+	public Word findByTextWord(String word);
 	
 
 }

@@ -3,6 +3,7 @@ package fr.magikvince.dcdl.dictionary.word;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,18 +28,25 @@ public class Word {
 	@JoinColumn(name="id_dictionary_fk")
 	private Dictionary dictionary;
 	
-	private String word;
+	private Gender gender;
+	
+	@Column(name="word")
+	private String textWord;
+	
+	@Column(name="creationDate")
 	private Date creationDate;
 	
 	public Word(Dictionary dictionary, Author author, String word)
 	{
 		this.dictionary = dictionary;
 		this.author = author;
-		this.word = word;
+		this.textWord = word;
+		
 		this.creationDate = new Date();
 	}
 
 	public Word() {
+		this.creationDate = new Date();
 	}
 
 	public int getIdWord() {
@@ -64,16 +72,22 @@ public class Word {
 	public void setDictionary(Dictionary dictionary) {
 		this.dictionary = dictionary;
 	}
-
-	public String getWord() {
-		return word;
+	
+	public Gender getGender() {
+		return gender;
 	}
 
-	public void setWord(String word) {
-		this.word = word;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
+	public String getTextWord() {
+		return textWord;
+	}
 
+	public void setTextWord(String textWord) {
+		this.textWord = textWord;
+	}
 
 	public Date getCreationDate() {
 		return creationDate;
