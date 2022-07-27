@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import fr.magikvince.dcdl.dictionary.author.Author;
 import fr.magikvince.dcdl.dictionary.dictionary.Dictionary;
+import fr.magikvince.dcdl.dictionary.wordtype.WordType;
 
 @Entity
 @Table(name="T_WORD")
@@ -30,10 +31,12 @@ public class Word {
 	
 	private Gender gender;
 	
+	private WordType wordtype;
+	
 	@Column(name="word")
 	private String textWord;
 	
-	@Column(name="creationDate")
+	@Column(name="creation_date")
 	private Date creationDate;
 	
 	public Word(Dictionary dictionary, Author author, String word)
@@ -79,6 +82,14 @@ public class Word {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+	
+	public WordType getWordtype() {
+		return wordtype;
+	}
+
+	public void setWordtype(WordType wordtype) {
+		this.wordtype = wordtype;
 	}
 
 	public String getTextWord() {
