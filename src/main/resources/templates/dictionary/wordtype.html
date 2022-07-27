@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css" />
+	<title>DCDL Language</title>
+</head>
+<body>
+	<h1>manage word types</h1>
+	
+	<h2>List of existing word types</h2>
+		
+	<table>
+	<tr><th>Author</th><th>code Language</th><th>Language</th><th>Word type</th></tr>
+	<tr th:each="wordtype : ${wordtypes}">
+		<td th:text = "${wordtype.author.pseudo}"></td>
+		<td th:text = "${wordtype.codeLanguage}"></td>
+		<td th:text = "${wordtype.textLanguage}"></td>
+		<td th:text = "${wordtype.textWordType}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	
+	<p>Fill the form to add a new word type</p>
+
+	<form class="WordTypeForm" method="POST" th:action="@{/wordtype}" th:object="${newWordte}">
+		<table>
+			<tr>
+				<td><label for="author">author:</label></td>
+				<td><select th:field="*{author}" id=author >
+						<option th:each="author : ${authors}"
+							th:value="${author.idAuthor}" 
+							th:text = "${author.pseudo} + ' : ' +  ${author.firstname} + ' ' + ${author.lastname}">author1
+						</option>
+					</select>
+				</td>
+			</tr>
+		
+			<tr>
+				<td><label for="language">language:</label></td>
+				<td><select th:field="*{language}" id=language >
+						<option th:each="language : ${languages}"
+							th:value="${language}" 
+							th:text = "${language.codeLanguage} + ' : ' + ${language.textLanguage}">language1
+						</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label for="wordtype">word type:</label></td>
+				<td><input type="text" id="wordtype" size=30 th:field="*{textWordType}"></input></td>
+			</tr>
+	
+		</table><br>
+		<input type="submit" value="go"></input>
+	</form>
+	<br>
+	
+	<br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>
