@@ -10,5 +10,4 @@ public interface WordTypeRepository extends CrudRepository<WordType, Integer> 	{
 
 	public boolean existsByTextWordType(String textwordtype);
 	public WordType findByTextWordType(String textwordtype);
-	public Collection<WordType> findAllWordTypes();
 }

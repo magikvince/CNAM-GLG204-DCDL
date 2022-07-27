@@ -25,6 +25,6 @@ public class WordTypeService {
 	
 	public Collection<WordType> findAllWordTypes() {
 		// TODO Auto-generated method stub
-		return (Collection<WordType>) wordtyperepository.findAllWordTypes();
+		return (Collection<WordType>) wordtyperepository.findAll();
 	}
 }

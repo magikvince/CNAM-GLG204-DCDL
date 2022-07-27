@@ -6,22 +6,26 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import fr.magikvince.dcdl.dictionary.author.Author;
 import fr.magikvince.dcdl.dictionary.language.Language;
 
 @Entity
-@Table(name="T_WORDTYPE")
+@Table(name="T_WORD_TYPE")
 public class WordType {
 	
 	@Id
 	private int idWordType;
 	
-	@Column(name="id_author_fk")
+	@ManyToOne
+	@JoinColumn(name="id_author_fk")
 	private Author author;
 	
-	@Column(name="code_language_fk")
+	@ManyToOne
+	@JoinColumn(name="code_language_fk")
 	private Language language;
 	
 	@Column(name="word_type")

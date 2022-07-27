@@ -31,6 +31,8 @@ public class Word {
 	
 	private Gender gender;
 	
+	@ManyToOne
+	@JoinColumn(name="id_word_type_fk")
 	private WordType wordtype;
 	
 	@Column(name="word")
