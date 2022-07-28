@@ -21,7 +21,7 @@ public class Dictionary {
 	public Author author;
 	
 	@ManyToOne
-	@JoinColumn(name="code_language_fk")
+	@JoinColumn(name="id_language_fk")
 	public Language language;
 	
 	public String name;
