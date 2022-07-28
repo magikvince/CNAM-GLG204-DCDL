@@ -49,7 +49,7 @@ CREATE TABLE T_WORD (
  id_dictionary_fk INT,
  id_author_fk INT,
  id_word_type_fk INT,
- gender VARCHAR(8),
+ gender VARCHAR(20),
  word VARCHAR(50) NOT NULL, 
  creation_date DATETIME
 );
