@@ -14,8 +14,8 @@
 	<tr><th>Author</th><th>code Language</th><th>Language</th><th>Word type</th></tr>
 	<tr th:each="wordtype : ${wordtypes}">
 		<td th:text = "${wordtype.author.pseudo}"></td>
-		<td th:text = "${wordtype.codeLanguage}"></td>
-		<td th:text = "${wordtype.textLanguage}"></td>
+		<td th:text = "${wordtype.language.codeLanguage}"></td>
+		<td th:text = "${wordtype.language.textLanguage}"></td>
 		<td th:text = "${wordtype.textWordType}"></td>
 	</tr> 
 	</table>

@@ -40,19 +40,4 @@ ADD CONSTRAINT `id_word_fk`
 ADD CONSTRAINT `id_author_fk_t_word_def`
   FOREIGN KEY (`id_author_fk`)
   REFERENCES `dcdl`.`t_author` (`id_author`);
-  
-  
-  /* inserting default values */
-  INSERT INTO `dcdl`.`t_author` (`pseudo`,`firstname`,`lastname`) VALUES ( 'MAGIKVINCE', 'Vincent', 'NAVARRO');
-  INSERT INTO `dcdl`.`t_author` (`pseudo`,`firstname`,`lastname`) VALUES ( 'JMDOUIN', 'Jean-Michel', 'DOUIN');
-  INSERT INTO `dcdl`.`t_author` (`pseudo`,`firstname`,`lastname`) VALUES ( 'SROSMORDUC', 'Serge', 'ROSMORDUC');
-  INSERT INTO `dcdl`.`t_author` (`pseudo`,`firstname`,`lastname`) VALUES ( 'PGRAFFION', 'Pascal', 'GRAFFION');
-  
-  INSERT INTO `dcdl`.`t_language` (`code_language`, `language`, `id_author_fk`) VALUES ('FR','Français', 1);
-  INSERT INTO `dcdl`.`t_language`(`code_language`,`language`,`id_author_fk`) VALUES ('ES','Espagnol',2);
-  INSERT INTO `dcdl`.`t_language`(`code_language`,`language`,`id_author_fk`) VALUES ('UK','Anglais', 3);
-  
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_fr', 1, 1,'dictionnaire Français');
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_es', 2, 2,'dictionnaire Espagnol');
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_uk', 3, 3,'dictionnaire Anglais');
-  
+ 
