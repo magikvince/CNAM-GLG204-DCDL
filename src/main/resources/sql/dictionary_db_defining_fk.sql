@@ -7,9 +7,9 @@ ADD CONSTRAINT `id_author_fk`
   REFERENCES `dcdl`.`t_author` (`id_author`);
 
 ALTER TABLE `dcdl`.`t_dictionary` 
-ADD CONSTRAINT `code_language_fk`
-  FOREIGN KEY (`code_language_fk`)
-  REFERENCES `dcdl`.`t_language` (`code_language`),
+ADD CONSTRAINT `id_language_fk`
+  FOREIGN KEY (`id_language_fk`)
+  REFERENCES `dcdl`.`t_language` (`id_language`),
 ADD CONSTRAINT `id_author_fk_t_dictionary`
   FOREIGN KEY (`id_author_fk`)
   REFERENCES `dcdl`.`t_author` (`id_author`);
@@ -29,9 +29,9 @@ ALTER TABLE `dcdl`.`t_word_type`
 ADD CONSTRAINT `id_author_fk_t_word_type`
   FOREIGN KEY (`id_author_fk`)
   REFERENCES `dcdl`.`t_author` (`id_author`),
-ADD CONSTRAINT `code_language_fk_t_word_type`
-  FOREIGN KEY (`code_language_fk`)
-  REFERENCES `dcdl`.`t_language` (`code_language`);
+ADD CONSTRAINT `id_language_fk_t_word_type`
+  FOREIGN KEY (`id_language_fk`)
+  REFERENCES `dcdl`.`t_language` (`id_language`);
 
 ALTER TABLE `dcdl`.`t_word_definition` 
 ADD CONSTRAINT `id_word_fk`
@@ -52,7 +52,7 @@ ADD CONSTRAINT `id_author_fk_t_word_def`
   INSERT INTO `dcdl`.`t_language`(`code_language`,`language`,`id_author_fk`) VALUES ('ES','Espagnol',2);
   INSERT INTO `dcdl`.`t_language`(`code_language`,`language`,`id_author_fk`) VALUES ('UK','Anglais', 3);
   
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`code_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_fr', 'FR', 1,'dictionnaire Français');
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`code_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_es', 'ES', 2,'dictionnaire Espagnol');
-  INSERT INTO `dcdl`.`t_dictionary` (`name`,`code_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_uk', 'UK', 3,'dictionnaire Anglais');
+  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_fr', 1, 1,'dictionnaire Français');
+  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_es', 2, 2,'dictionnaire Espagnol');
+  INSERT INTO `dcdl`.`t_dictionary` (`name`,`id_language_fk`,`id_author_fk`,`description`)  VALUES ('dico_uk', 3, 3,'dictionnaire Anglais');
   

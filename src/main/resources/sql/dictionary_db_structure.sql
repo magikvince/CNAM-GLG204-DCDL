@@ -17,7 +17,8 @@ CREATE TABLE T_AUTHOR (
 DROP TABLE if exists T_LANGUAGE CASCADE;
 
 CREATE TABLE T_LANGUAGE (
- code_language VARCHAR(4) NOT NULL PRIMARY KEY,
+ id_language INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ code_language VARCHAR(4) NOT NULL,
  language VARCHAR(30) NOT NULL,
  id_author_fk INT
 );
@@ -27,7 +28,7 @@ DROP TABLE if exists T_WORDTYPE CASCADE;
 CREATE TABLE T_WORD_TYPE (
  id_word_type INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  id_author_fk INT,
- code_language_fk VARCHAR(4),
+ id_language_fk INT,
  word_type VARCHAR(20) NOT NULL
 );
 
@@ -36,7 +37,7 @@ DROP TABLE if exists T_DICTIONARY CASCADE;
 CREATE TABLE T_DICTIONARY (
  id_dictionary INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  name VARCHAR(30) NOT NULL,
- code_language_fk VARCHAR(4),
+ id_language_fk INT,
  id_author_fk INT,
  description VARCHAR(100)
 );
