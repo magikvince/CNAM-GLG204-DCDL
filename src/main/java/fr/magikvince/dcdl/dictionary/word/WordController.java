@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import fr.magikvince.dcdl.dictionary.author.AuthorService;
 import fr.magikvince.dcdl.dictionary.dictionary.DictionaryService;
 import fr.magikvince.dcdl.dictionary.language.Language;
+import fr.magikvince.dcdl.dictionary.wordtype.WordTypeService;
 
 @Controller
 public class WordController {
@@ -20,6 +21,9 @@ public class WordController {
 	DictionaryService dictionaryservice;
 	
 	@Autowired
+	WordTypeService wordtypeservice;
+	
+	@Autowired
 	WordService wordservice;
 
 	@GetMapping("/word")
@@ -29,6 +33,8 @@ public class WordController {
 		model.addAttribute("authors", authorservice.findAllAuthors());
 		model.addAttribute("dictionaries", dictionaryservice.findAllDictionaries());
 		model.addAttribute("genders", Gender.values());
+		model.addAttribute("wordtypes", wordtypeservice.findAllWordTypes());
+		model.addAttribute("words", wordservice.findAllWords());
 		return "dictionary/word.html";
 	}
 	
