@@ -41,7 +41,7 @@
 				<td><label for="language">language:</label></td>
 				<td><select th:field="*{language}" id=language >
 						<option th:each="language : ${languages}"
-							th:value="${language}" 
+							th:value="${language.idLanguage}" 
 							th:text = "${language.codeLanguage} + ' : ' + ${language.textLanguage}">language1
 						</option>
 					</select>
