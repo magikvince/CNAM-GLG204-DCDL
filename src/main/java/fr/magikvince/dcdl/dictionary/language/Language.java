@@ -15,6 +15,9 @@ import fr.magikvince.dcdl.dictionary.author.Author;
 public class Language {
 
 	@Id
+	@Column(name="id_language")
+	public int idLanguage;
+		
 	@Column(name="code_language")
 	public String codeLanguage;
 	
@@ -35,6 +38,14 @@ public class Language {
 		this.author = author;
 		this.codeLanguage = code;
 		this.textLanguage = language;
+	}
+
+	public int getIdLanguage() {
+		return idLanguage;
+	}
+
+	public void setIdLanguage(int idLanguage) {
+		this.idLanguage = idLanguage;
 	}
 
 	public String getCodeLanguage() {
