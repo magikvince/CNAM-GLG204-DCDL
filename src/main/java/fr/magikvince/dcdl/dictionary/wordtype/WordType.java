@@ -25,7 +25,7 @@ public class WordType {
 	private Author author;
 	
 	@ManyToOne
-	@JoinColumn(name="code_language_fk")
+	@JoinColumn(name="id_language_fk")
 	private Language language;
 	
 	@Column(name="word_type")
