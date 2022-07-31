@@ -1,29 +1,25 @@
 package fr.magikvince.dcdl.game.draw;
 
-import java.util.Set;
+import java.util.Random;
+import java.util.List;
 
-public class Consonent extends Letter {
+public class Consonent {
 	
-	private Set<String> consonents = Set.of("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z");
+	private static final List<String> consonents = List.of("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z");
 	private static final int numberOfConsonents = 20;
 	
+	private static Random random;
 	
 	public Consonent()
 	{
+		this.random = new Random();
+	}
+	
+	public static String generateRandomLetter()
+	{
+		int position = random.nextInt(numberOfConsonents);
 		
-	}
-	
-	public Set<String> getConsonents() {
-		return consonents;
-	}
-
-	public void setConsonents(Set<String> consonents) {
-		this.consonents = consonents;
-	}
-
-	
-	public static int getNumberofconsonent() {
-		return numberOfConsonents;
+		return consonents.get(position);
 	}
 
 }
