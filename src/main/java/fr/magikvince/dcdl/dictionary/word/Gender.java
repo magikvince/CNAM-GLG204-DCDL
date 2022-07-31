@@ -4,5 +4,5 @@ package fr.magikvince.dcdl.dictionary.word;
 public enum Gender {
 	NOT_APPLICABLE,
 	MASCULINE,
-	FEMININE,
+	FEMININE
 }
