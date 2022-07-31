@@ -8,7 +8,7 @@ public abstract class Draw {
 	private Date date;
 	private String draw;
 	
-	public abstract void randomDraw() throws Exception;
+	public abstract void randomDraw() throws DrawException;
 	
 	public Draw()
 	{
