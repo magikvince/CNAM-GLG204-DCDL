@@ -10,15 +10,11 @@ public class Vowel {
 
 	private static Random random;
 	
-	public Vowel()
-	{
-		this.random = new Random();
-	}
-	
 	public static String generateRandomLetter()
 	{
 		//Returns a pseudorandom, uniformly distributed int value between 0 (inclusive) and the specified value (exclusive), 
 		//drawn from this random number generator's sequence.
+		random = new Random();
 		int position = random.nextInt(numberOfVowels);
 		
 		return vowels.get(position);

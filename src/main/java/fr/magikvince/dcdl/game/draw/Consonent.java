@@ -10,16 +10,32 @@ public class Consonent {
 	
 	private static Random random;
 	
-	public Consonent()
-	{
-		this.random = new Random();
-	}
+	private static int lastRandomNumber;
+	private static String lastRandomConsonent;
 	
 	public static String generateRandomLetter()
 	{
+		
+		random = new Random();
+		
 		int position = random.nextInt(numberOfConsonents);
 		
-		return consonents.get(position);
+		lastRandomNumber = position;
+		lastRandomConsonent = consonents.get(position);
+		
+		return lastRandomConsonent;
+	}
+	
+	public static void displayConsonents()
+	{
+		System.out.println( "Consonents = " + consonents.toString());
+		
+	}
+	
+	public static void displaylastRandomLetter()
+	{
+		System.out.println("last random number : "+ lastRandomNumber);
+		System.out.println("last random consonent : "+ lastRandomConsonent);
 	}
 
 }
