@@ -37,17 +37,23 @@ public class DrawCount extends Draw {
 		this.Count = RandomNumber.generateRandomCount();
 		
 		int newNumber = 0;
-		int numberOfOccurences = 0;
+		int numberOfOccurrences = 0;
 		
 		while (numbers.size() < maxNumbers)
 		{
 			newNumber = RandomNumber.generateRandomNumber();
 			
-			//before to add a new number to the numbers list, we have to check if there are not already 2 occurences of this number !
-			numberOfOccurences = getNumberOfOccurrencesInList(newNumber); 
+			if (numbers.contains(newNumber))
+			{
+				//before to add a new number to the numbers list, we have to check if there are not already 2 occurrences of this number !
+				numberOfOccurrences = getNumberOfOccurrencesInList(newNumber); 
 			
-			if (numberOfOccurences < 2 )
+				if (numberOfOccurrences < 2 )
+					numbers.add(newNumber);
+			}
+			else // number not present so we can add it !
 				numbers.add(newNumber);
+				
 		}
 
 	}
