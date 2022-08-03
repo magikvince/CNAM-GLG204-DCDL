@@ -88,9 +88,44 @@ public class DrawLetter extends Draw
 
 	}
 	
+	/** return number of consonents from the letters List **/
+	public int getNumberOfConsonents()
+	{
+		int number = 0;
+		
+		for (Letter letter : letters)
+		{
+			if (letter.isConsonent())
+				number++;
+		}
+		return number;
+	}
+	
+	/** return number of vowels from the letters List **/
+	public int getNumberOfVowels()
+	{
+		int number = 0;
+		
+		for (Letter letter : letters)
+		{
+			if (letter.isVowel())
+				number++;
+		}
+		return number;
+	}
+	
 	public String toString()
 	{
-		return this.letters.toString();
+		String draw = "";
+		
+		for ( Letter letter : letters)
+		{
+			if (letters.iterator().hasNext())
+				draw += letter.getText() + " ";
+			else
+				draw += letter.getText();
+		}
+		return draw;
 		
 	}
 

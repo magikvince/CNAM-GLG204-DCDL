@@ -26,6 +26,12 @@ public class Consonent {
 		return lastRandomConsonent;
 	}
 	
+	
+	public static List<String> getConsonents() {
+		return consonents;
+	}
+
+
 	public static void displayConsonents()
 	{
 		System.out.println( "Consonents = " + consonents.toString());

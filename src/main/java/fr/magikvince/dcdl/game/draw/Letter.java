@@ -42,5 +42,14 @@ public class Letter {
 		}
 	}
 	
+	public boolean isVowel()
+	{
+		return Vowel.getVowels().contains(text);
+	}
+	
+	public boolean isConsonent()
+	{
+		return Consonent.getConsonents().contains(text);
+	}
 	
 }
