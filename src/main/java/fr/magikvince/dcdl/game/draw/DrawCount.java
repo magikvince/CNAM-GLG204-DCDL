@@ -17,10 +17,32 @@ public class DrawCount extends Draw {
 		
 	}
 	
+	public int getCount() {
+		return Count;
+	}
+
+
+	public void setCount(int count) {
+		Count = count;
+	}
+
+
+
+	public List<Integer> getNumbers() {
+		return numbers;
+	}
+
+	public void setNumbers(List<Integer> numbers) {
+		this.numbers = numbers;
+	}
+
+
+
 	public Integer getNumberOfOccurrencesInList(int number)
 	{
 		int count = 0;
 		
+		//a revoir !!!!
 		while (numbers.iterator().hasNext())
 		{
 			if (numbers.iterator().next() == number)
