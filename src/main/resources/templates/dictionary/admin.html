@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="style.css" />
-	<title>DCDL ADMIN</title>
-</head>
+
+<div th:replace="header :: head (title='dictionary admin page') "></div>
+
 <body>
-	<h1>Welcome on DCDL admin web application</h1>
+	<h1>Welcome on DCDL admin page</h1>
 
 	<a href="/author" th:href="@{/author}">manage authors</a><br>
 	<a href="/language" th:href="@{/language}">manage languages</a><br>
