@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class RandomNumber {
 	
-	private static final List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 100);
+	private static final List<Integer> authorizedNumbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 100);
 	
 	private static final int numberOfItems = 13;
 	
@@ -24,7 +24,7 @@ public class RandomNumber {
 		int position = random.nextInt(numberOfItems);
 		
 		lastRandomIndex = position;
-		lastRandomNumber = numbers.get(position);
+		lastRandomNumber = authorizedNumbers.get(position);
 		
 		return lastRandomNumber;
 	}
@@ -35,9 +35,9 @@ public class RandomNumber {
 		return random.nextInt(999);
 	}
 	
-	public static void displayNumbers()
+	public static void displayAuthorizedNumbers()
 	{
-		System.out.println( "Numbers = " + numbers.toString());
+		System.out.println( "Numbers = " + authorizedNumbers.toString());
 		
 	}
 	

@@ -12,17 +12,16 @@ public class RandomNumberTest {
 	public void testGenerateRandomNumber()
 	{
 		RandomNumber.generateRandomNumber();
-		RandomNumber.displayNumbers();
+		RandomNumber.displayAuthorizedNumbers();
 		RandomNumber.displaylastRandomNumber();
 		
 		RandomNumber.generateRandomNumber();
-		RandomNumber.displayNumbers();
+		RandomNumber.displayAuthorizedNumbers();
 		RandomNumber.displaylastRandomNumber();
 		
 		RandomNumber.generateRandomNumber();
-		RandomNumber.displayNumbers();
+		RandomNumber.displayAuthorizedNumbers();
 		RandomNumber.displaylastRandomNumber();
-		
 	}
 	
 	@Test

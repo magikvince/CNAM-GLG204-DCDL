@@ -1,14 +1,14 @@
 package fr.magikvince.dcdl.game.draw;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 public class DrawCount extends Draw {
 
-	private int Count;
-	
+	private int count;
 	private List<Integer> numbers;
+	
 	private final int maxNumbers = 6;
 	
 	public DrawCount()
@@ -18,15 +18,14 @@ public class DrawCount extends Draw {
 	}
 	
 	public int getCount() {
-		return Count;
+		return count;
 	}
 
 
+	//only for Test classes
 	public void setCount(int count) {
-		Count = count;
+		this.count = count;
 	}
-
-
 
 	public List<Integer> getNumbers() {
 		return numbers;
@@ -36,28 +35,54 @@ public class DrawCount extends Draw {
 		this.numbers = numbers;
 	}
 
-
-
+	//a revoir !!!! boucle infinie???
+	
 	public Integer getNumberOfOccurrencesInList(int number)
 	{
-		int count = 0;
+		int occurenceCount = 0;
+
+		Iterator<Integer> iter = numbers.iterator();
+		int index = 0;
 		
-		//a revoir !!!!
-		while (numbers.iterator().hasNext())
+		//System.out.println(toString());
+		//System.out.println("checking number of occurrences in list for value =  " + number);
+		
+		while (iter.hasNext())
 		{
-			if (numbers.iterator().next() == number)
-				count ++;
+			int element = iter.next();
+			//System.out.println("getNumberOfOccurrencesInList : index = " + index + ", element = "+ element);
+			//System.out.println("comparing element to number : is " + element + " == " + number + " ?");
+			
+			if ( element == number)
+			{
+				occurenceCount ++;
+				//System.out.println("number and element match : increasing occurenceCount : " + occurenceCount );
+			}
+				
+			index++;
+			if ( occurenceCount >= 2 )
+			{
+				//System.out.println("count is superior or equal to 2 : " + occurenceCount);
+				//no need to continue checking other elements
+				return occurenceCount;
+			}
 		}
 		
-		return count;
+		//System.out.println("final occurences count for number '" + number + "' = " + occurenceCount);
+		return occurenceCount;
 	}
 	
-	@Override
-	public void randomDraw() 
+	public void randomCount()
 	{
 		
-		this.Count = RandomNumber.generateRandomCount();
-		
+		while ( count <= 99)
+		{
+			this.count = RandomNumber.generateRandomCount();
+		}
+	}
+	
+	public void randomNumbers()
+	{
 		int newNumber = 0;
 		int numberOfOccurrences = 0;
 		
@@ -67,7 +92,7 @@ public class DrawCount extends Draw {
 			
 			if (numbers.contains(newNumber))
 			{
-				//before to add a new number to the numbers list, we have to check if there are not already 2 occurrences of this number !
+				//before to add a new number to the numbers list, we have to check it doesn't already contain 2 occurrences of this number !
 				numberOfOccurrences = getNumberOfOccurrencesInList(newNumber); 
 			
 				if (numberOfOccurrences < 2 )
@@ -75,11 +100,26 @@ public class DrawCount extends Draw {
 			}
 			else // number not present so we can add it !
 				numbers.add(newNumber);
-				
 		}
+	}
+	
+	@Override
+	public void randomDraw() 
+	{
+		randomCount();
+		randomNumbers();
 
 	}
 	
-	
-
+	public String toString()
+	{
+		String result = "count : " + this.count + ", numbers : ";
+		
+		for (Integer number : numbers)
+		{
+			result += number + " ";
+		}
+				
+		return result;
+	}
 }
