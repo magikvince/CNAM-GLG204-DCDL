@@ -16,7 +16,7 @@ public class WordService {
 		if ( ! wordRepository.existsByTextWord(word.getTextWord() ) )
 			wordRepository.save(word);
 		else
-			throw new WordAlreadyExistException();
+			throw new WordAlreadyExistException("word " + word.getTextWord() + " already exist in dictionary");
 	}
 
 	public Word findWordByWord(String word) throws WordNotFoundException{
