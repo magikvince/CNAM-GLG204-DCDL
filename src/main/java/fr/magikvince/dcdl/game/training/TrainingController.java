@@ -16,6 +16,18 @@ public class TrainingController {
 		return "game/training.html";
 	}
 	
+	@GetMapping("/training/letters")
+	public String trainingLettersGET(Model model)
+	{
+		return "game/training-letters.html";
+	}
+	
+	@GetMapping("/training/count")
+	public String trainingCountGET(Model model)
+	{
+		return "game/training-count.html";
+	}
+	
 	@PostMapping("/training")
 	public String trainingPOST(Model model)
 	{

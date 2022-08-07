@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<div th:replace="header :: head (title='clubs') "></div>
+<div th:replace="header :: head (title='training') "></div>
 <body>
 	<h1>Welcome on DCDL web application</h1>	
 	
@@ -9,8 +9,8 @@
 	Vous êtes au bon endroit ! :)
 	</p>
 	
-	<a href="/create-club">entraînement aux lettres</a><br>
-	<a href="/find-club">entraînement aux chiffres</a>
+	<a href="/training/letters" th:href="@{/training/letters}" >entraînement aux lettres</a><br>
+	<a href="/training/count" th:href="@{/training/count}" >entraînement aux chiffres</a>
 	
 	<br><br>
 	<div th:replace="footer :: index"></div>
