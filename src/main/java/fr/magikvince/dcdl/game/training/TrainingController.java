@@ -19,12 +19,14 @@ public class TrainingController {
 	@GetMapping("/training/letters")
 	public String trainingLettersGET(Model model)
 	{
+		model.addAttribute("drawnumber", Integer.valueOf(0));
 		return "game/training-letters.html";
 	}
 	
 	@GetMapping("/training/count")
 	public String trainingCountGET(Model model)
 	{
+		model.addAttribute("drawnumber", Integer.valueOf(0));
 		return "game/training-count.html";
 	}
 	
