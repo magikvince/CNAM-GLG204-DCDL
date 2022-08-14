@@ -7,13 +7,15 @@
 	
 	<h2>training count</h2>
 	
+	<p>actual value for drawnumber :<span th:text="${drawnumber}"></span> </p>
+	
 	choose the number of draws you want for your training, then click on start button !<br><br>
 	
-	<form class="TrainingCountForm" method="POST" th:action="@{/training/count(number=${drawnumber}) }">
+	<form class="TrainingCountForm" method="POST" th:action="@{/training/count}">
 		<table>
 			<tr>
 				<td><label for="drawnumber">number of draw(s) :</label></td>
-				<td><input type="text" id="drawnumber" name="drawnumber" th:field="*{drawnumber}" size=2 /> </td>
+				<td><input type="text" id="drawnumber" name="drawnumber" size=2 /> </td>
 			</tr>
 		</table><br>
 		<input type="submit" value="start"></input>
