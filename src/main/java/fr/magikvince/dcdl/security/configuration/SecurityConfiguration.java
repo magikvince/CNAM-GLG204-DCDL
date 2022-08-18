@@ -30,7 +30,7 @@ public class SecurityConfiguration {
         	.and()
         .authorizeRequests()
         	.antMatchers(staticResources).permitAll()
-        	.antMatchers("/", "/logon").permitAll()
+        	.antMatchers("/", "/logon" , "/training", "/training/*","/dictionary-admin").permitAll()
         	.anyRequest().authenticated();
     	
     	return http.build();

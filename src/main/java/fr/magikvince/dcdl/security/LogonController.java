@@ -44,7 +44,7 @@ public class LogonController {
 			e.printStackTrace();
 		}
 		
-		return "security/logon.html";
+		return "redirect:/";
 	}
 	
 }
