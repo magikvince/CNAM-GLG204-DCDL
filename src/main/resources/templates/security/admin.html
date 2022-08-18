@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='DCDL admin page') "></div>
+
+<body>
+	<h1>Welcome on DCDL admin page</h1>
+
+	<a href="/users" th:href="@{/users}">users</a><br>
+	
+	<div th:replace="footer :: index"></div>
+	
+</body>
+</html>
