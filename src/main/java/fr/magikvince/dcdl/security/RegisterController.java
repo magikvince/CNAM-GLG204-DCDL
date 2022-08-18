@@ -29,7 +29,7 @@ public class RegisterController {
 		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 		}
-		return "security/register.html";
+		return "redirect:/logon";
 	}
 	
 }
