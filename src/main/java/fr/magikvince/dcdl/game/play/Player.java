@@ -2,8 +2,12 @@ package fr.magikvince.dcdl.game.play;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import fr.magikvince.dcdl.security.User;
 
 @Entity
 @Table(name = "T_PLAYER")
@@ -11,15 +15,18 @@ public class Player {
 	
 	@Id
 	private int idPlayer;
-	public String pseudo;
-		
+	
+	@OneToOne
+	@JoinColumn(name="id_user_fk")
+	private User user;
+	
 	@Transient
 	public boolean isOnline;
 	@Transient
 	public boolean isRegistered;
 	
-	public Player(String pseudo) {
-		this.pseudo = pseudo;
+	public Player(User user) {
+		this.user = user;
 	}
 
 	public Player() {
@@ -35,11 +42,7 @@ public class Player {
 	}
 
 	public String getPseudo() {
-		return pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
+		return user.getPseudo();
 	}
 
 	public boolean isOnline() {
@@ -57,8 +60,5 @@ public class Player {
 	public void setRegistered(boolean isRegistered) {
 		this.isRegistered = isRegistered;
 	}
-	
-	
-
 	
 }
