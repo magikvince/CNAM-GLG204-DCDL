@@ -1,5 +1,7 @@
 package fr.magikvince.dcdl.security;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +25,7 @@ public class UserService {
 		return userRepository.findByEmail(email);
 	}
 
+	public Collection<User> findAllUsers(){
+		return (Collection<User>) userRepository.findAll();
+	}
 }
