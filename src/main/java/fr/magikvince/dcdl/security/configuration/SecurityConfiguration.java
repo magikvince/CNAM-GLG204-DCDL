@@ -30,21 +30,11 @@ public class SecurityConfiguration {
         	.and()
         .authorizeRequests()
         	.antMatchers(staticResources).permitAll()
-        	.antMatchers("/", "/logon" , "/training", "/training/*","/dictionary-admin").permitAll()
+        	.antMatchers("/", "/logon" , "/register", "/training", "/training/*", "/admin", "/dictionary-admin").permitAll()
         	.anyRequest().authenticated();
     	
     	return http.build();
     	
-    }
-    
-    @Bean
-    public UserDetailsService userDetailsService() {
-            UserDetails user = User.withDefaultPasswordEncoder()
-                    .username("admin@gmail.com")
-                    .password("admin")
-                    .roles("USER")
-                    .build();
-            return new InMemoryUserDetailsManager(user);
     }
     
     @Bean
