@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='manage words') "></div>
+<body>
+	<h1>manage words</h1>
+
+	<h2>List of existing users</h2>
+
+	<table >
+	<tr><th>Id</th><th>IsEnable</th><th>Email</th><th>Pseudo</th><th>Firstname</th><th>Lastname</th><th>Password</th><th>Birthdate</th><th>Country</th><th>City</th></tr>
+	<tr th:each="user : ${users}">
+		<td th:text = "${user.idUser}"></td>
+		<td th:text = "${user.isEnable}"></td>
+		<td th:text = "${user.email}"></td>
+		<td th:text = "${user.pseudo}"></td>
+		<td th:text = "${user.firstname}"></td>
+		<td th:text = "${user.lastname}"></td>
+		<td th:text = "${user.password}"></td>
+		<td th:text = "${user.birthdate}"></td>
+		<td th:text = "${user.country}"></td>
+		<td th:text = "${user.city}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>

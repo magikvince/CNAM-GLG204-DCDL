@@ -24,8 +24,7 @@ public class User {
 	
 	@Transient
 	public boolean isOnline;
-	@Transient
-	public boolean isRegistered;
+	public boolean isEnable;
 	
 	public User(String pseudo) {
 		this.pseudo = pseudo;
@@ -115,15 +114,12 @@ public class User {
 		this.isOnline = isOnline;
 	}
 
-	public boolean isRegistered() {
-		return isRegistered;
+	public boolean isEnable() {
+		return isEnable;
 	}
 
-	public void setRegistered(boolean isRegistered) {
-		this.isRegistered = isRegistered;
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
 	}
-	
-	
-
 	
 }
