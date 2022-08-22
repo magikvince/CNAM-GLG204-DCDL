@@ -2,6 +2,7 @@ package fr.magikvince.dcdl.security;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,6 +14,10 @@ public class User {
 	
 	@Id
 	private int idUser;
+	
+	@Column(name="isenable")
+	public boolean isEnable;
+	
 	public String pseudo;
 	private String firstname;
 	private String lastname;
@@ -24,7 +29,8 @@ public class User {
 	
 	@Transient
 	public boolean isOnline;
-	public boolean isEnable;
+	
+	
 	
 	public User(String pseudo) {
 		this.pseudo = pseudo;
@@ -40,6 +46,14 @@ public class User {
 
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
+	}
+	
+	public boolean isEnable() {
+		return isEnable;
+	}
+
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
 	}
 
 	public String getPseudo() {
@@ -114,12 +128,4 @@ public class User {
 		this.isOnline = isOnline;
 	}
 
-	public boolean isEnable() {
-		return isEnable;
-	}
-
-	public void setEnable(boolean isEnable) {
-		this.isEnable = isEnable;
-	}
-	
 }
