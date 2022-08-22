@@ -22,7 +22,7 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String registerPOST(Model model, User newUser)
 	{
-		//User user = (User) model.getAttribute("newUser");
+		newUser.setEnable(true);
 		try {
 			//userservice.createUser(user);
 			userservice.createUser(newUser);
