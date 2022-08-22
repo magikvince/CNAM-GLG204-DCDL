@@ -9,10 +9,10 @@ import javax.persistence.Table;
 public class Author {
 	
 	@Id
-	public int idAuthor;
-	public String pseudo;
-	public String firstname;
-	public String lastname;
+	private int idAuthor;
+	private String pseudo;
+	private String firstname;
+	private String lastname;
 	
 	public Author(String pseudo, String firstname, String lastname)
 	{

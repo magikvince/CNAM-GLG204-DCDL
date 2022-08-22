@@ -16,17 +16,17 @@ public class Language {
 
 	@Id
 	@Column(name="id_language")
-	public int idLanguage;
+	private int idLanguage;
 		
 	@Column(name="code_language")
-	public String codeLanguage;
+	private String codeLanguage;
 	
 	@Column(name="language")
-	public String textLanguage;
+	private String textLanguage;
 	
 	@ManyToOne
 	@JoinColumn(name="id_author_fk")
-	public Author author;
+	private Author author;
 	
 	public Language()
 	{

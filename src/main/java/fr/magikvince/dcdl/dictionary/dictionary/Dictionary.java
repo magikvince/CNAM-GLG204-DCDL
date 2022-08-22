@@ -14,18 +14,18 @@ import fr.magikvince.dcdl.dictionary.language.Language;
 public class Dictionary {
 	
 	@Id
-	public int idDictionary;
+	private int idDictionary;
 	
 	@ManyToOne
 	@JoinColumn(name="id_author_fk")
-	public Author author;
+	private Author author;
 	
 	@ManyToOne
 	@JoinColumn(name="id_language_fk")
-	public Language language;
+	private Language language;
 	
-	public String name;
-	public String description;
+	private String name;
+	private String description;
 	
 	public Dictionary(Author author, Language language, String name, String description)
 	{
