@@ -13,12 +13,12 @@ import javax.persistence.Transient;
 public class User {
 	
 	@Id
-	private int idUser;
+	protected int idUser;
 	
 	@Column(name="isenable")
-	public boolean isEnable;
+	private boolean isEnable;
 	
-	public String pseudo;
+	private String pseudo;
 	private String firstname;
 	private String lastname;
 	private String email;
