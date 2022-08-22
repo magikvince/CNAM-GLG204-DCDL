@@ -23,8 +23,8 @@ CREATE TABLE T_USER (
  city VARCHAR(40)
 );
 
-INSERT INTO T_USER (true, `pseudo`,`firstname`,`lastname`,`email`,`password`,`birthdate`,`country`,`city`) VALUES ('magikvince','Vincent', 'NAVARRO','vincent1603@hotmail.com', 'admin', '1978-03-16', 'FRANCE', 'MELUN');
-INSERT INTO T_USER (true, `pseudo`,`firstname`,`lastname`,`email`,`password`,`birthdate`,`country`,`city`) VALUES ('sayurisan','LESLIE', 'SAYURI','sayuri@hotmail.com', 'admin', '1974-05-30', 'FRANCE', 'MELUN');
+INSERT INTO T_USER (`isenable`, `pseudo`,`firstname`,`lastname`,`email`,`password`,`birthdate`,`country`,`city`) VALUES (true, 'magikvince','Vincent', 'NAVARRO','vincent1603@hotmail.com', 'admin', '1978-03-16', 'FRANCE', 'MELUN');
+INSERT INTO T_USER (`isenable`, `pseudo`,`firstname`,`lastname`,`email`,`password`,`birthdate`,`country`,`city`) VALUES (true, 'sayurisan','LESLIE', 'SAYURI','sayuri@hotmail.com', 'admin', '1974-05-30', 'FRANCE', 'MELUN');
 
 ALTER TABLE `dcdl`.`t_player` 
 ADD INDEX `id_user_fk_idx` (`id_user_fk` ASC) VISIBLE;
