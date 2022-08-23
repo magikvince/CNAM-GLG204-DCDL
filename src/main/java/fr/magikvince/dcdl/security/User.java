@@ -1,6 +1,9 @@
 package fr.magikvince.dcdl.security;
 
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +16,7 @@ import javax.persistence.Transient;
 public class User {
 	
 	@Id
-	protected int idUser;
+	private int idUser;
 	
 	@Column(name="isenable")
 	private boolean isEnable;
@@ -23,12 +26,12 @@ public class User {
 	private String lastname;
 	private String email;
 	private String password;
-	private Date birthdate;
+	private LocalDate birthdate;
 	private String country;
 	private String city;
 	
 	@Transient
-	public boolean isOnline;
+	private boolean isOnline;
 	
 	
 	
@@ -40,14 +43,14 @@ public class User {
 
 	}
 
-	public int getIdUSer() {
+	public int getIdUser() {
 		return idUser;
 	}
 
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	
+
 	public boolean isEnable() {
 		return isEnable;
 	}
@@ -96,12 +99,24 @@ public class User {
 		this.password = password;
 	}
 
-	public Date getBirthdate() {
+	public LocalDate getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
+	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
+	}
+	
+	public void setBirthdate(String birthdate) {
+		
+		//date format = DD/MM/YYYY or DD-MM-YYYY = 10 characters
+				
+		/* int day = Integer.valueOf(birthdate.substring(0,2));
+		int month = Integer.valueOf(birthdate.substring(3,5));
+		int year = Integer.valueOf((birthdate).substring(6,10));
+		this.birthdate = LocalDate.of(day, month, year); */
+		System.out.println("method setBirthdate : birthdate = " + birthdate);
+		this.birthdate = LocalDate.parse(birthdate);
 	}
 
 	public String getCountry() {
