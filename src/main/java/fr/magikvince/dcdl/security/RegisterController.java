@@ -1,5 +1,7 @@
 package fr.magikvince.dcdl.security;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,8 @@ public class RegisterController {
 	public String registerPOST(Model model, User newUser)
 	{
 		newUser.setEnable(true);
+		newUser.setBirthdate(newUser.getBirthdateAsText());
+		newUser.setCreationDateTime(LocalDateTime.now());
 		try {
 			//userservice.createUser(user);
 			userservice.createUser(newUser);
