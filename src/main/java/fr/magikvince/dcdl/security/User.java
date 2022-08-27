@@ -1,9 +1,7 @@
 package fr.magikvince.dcdl.security;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,21 +16,26 @@ public class User {
 	@Id
 	private int idUser;
 	
-	@Column(name="isenable")
+	@Column(name="is_enable")
 	private boolean isEnable;
 	
+	@Column(name="creation_datetime")
+	private LocalDateTime CreationDateTime;
 	private String pseudo;
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String password;
 	private LocalDate birthdate;
+	
+	@Transient
+	private String birthdateAsText;
+	
 	private String country;
 	private String city;
 	
 	@Transient
 	private boolean isOnline;
-	
 	
 	
 	public User(String pseudo) {
@@ -57,6 +60,14 @@ public class User {
 
 	public void setEnable(boolean isEnable) {
 		this.isEnable = isEnable;
+	}
+
+	public LocalDateTime getCreationDateTime() {
+		return CreationDateTime;
+	}
+
+	public void setCreationDateTime(LocalDateTime creationDateTime) {
+		CreationDateTime = creationDateTime;
 	}
 
 	public String getPseudo() {
@@ -119,6 +130,14 @@ public class User {
 		this.birthdate = LocalDate.parse(birthdate);
 	}
 
+	public String getBirthdateAsText() {
+		return birthdateAsText;
+	}
+
+	public void setBirthdateAsText(String birthdateAsText) {
+		this.birthdateAsText = birthdateAsText;
+	}
+
 	public String getCountry() {
 		return country;
 	}
@@ -141,6 +160,23 @@ public class User {
 
 	public void setOnline(boolean isOnline) {
 		this.isOnline = isOnline;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String texte = 	"\n" 
+		+ "creationDateTime : " + getCreationDateTime() + "\n"
+	    + "pseudo : " + getPseudo() + "\n" 
+        + "firstname : " + getFirstname() + "\n"
+		+ "lastname : " + getLastname() + "\n"
+		+ "email : " + getEmail() + "\n"
+		+ "country : " + getCountry() + "\n"
+		+ "city : " + getCity() + "\n"
+		+ "birthdateAsText : " + getBirthdateAsText() + "\n"
+		+ "birthdate : " + getBirthdate().toString() + "\n"; 
+		
+		return texte;
 	}
 
 }
