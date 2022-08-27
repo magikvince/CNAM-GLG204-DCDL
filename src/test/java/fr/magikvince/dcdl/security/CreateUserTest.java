@@ -31,8 +31,9 @@ public class CreateUserTest {
 		user.setPassword("password");
 		user.setCountry("FRANCE");
 		
-		user.setBirthdate("16-03-1978");
+		user.setBirthdate("1978-03-16");
 		
+		System.out.println("user : " + user);
 		try {
 			userservice.createUser(user);
 		} catch (UserAlreadyExistException e) {
