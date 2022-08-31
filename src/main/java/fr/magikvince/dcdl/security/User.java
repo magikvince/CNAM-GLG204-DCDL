@@ -16,8 +16,8 @@ public class User {
 	@Id
 	private int idUser;
 	
-	@Column(name="is_enable")
-	private boolean isEnable;
+	@Column(name="is_enabled")
+	private boolean isEnabled;
 	
 	@Column(name="creation_datetime")
 	private LocalDateTime CreationDateTime;
@@ -54,12 +54,12 @@ public class User {
 		this.idUser = idUser;
 	}
 
-	public boolean isEnable() {
-		return isEnable;
+	public boolean isEnabled() {
+		return isEnabled;
 	}
 
 	public void setEnable(boolean isEnable) {
-		this.isEnable = isEnable;
+		this.isEnabled = isEnable;
 	}
 
 	public LocalDateTime getCreationDateTime() {
