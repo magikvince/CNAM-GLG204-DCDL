@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,8 @@ public class CreateUserTest {
 		user.setCity("MELUN");
 		user.setPassword("password");
 		user.setCountry("FRANCE");
+		
+		user.setCreationDateTime(LocalDateTime.now());
 		
 		user.setBirthdate("1978-03-16");
 		
