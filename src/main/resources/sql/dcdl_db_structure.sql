@@ -1,6 +1,6 @@
 use dcdl;
 
-DROP TABLE if exists T_USERS_ROLES CASCADE;
+DROP TABLE if exists T_USER_ROLE CASCADE;
 DROP TABLE if exists T_PLAYER CASCADE;
 DROP TABLE if exists T_ROLE CASCADE;
 DROP TABLE if exists T_USER CASCADE;
@@ -28,15 +28,14 @@ CREATE TABLE T_USER (
 );
 
 -- describing all roles existing in the application
-CREATE TABLE IF NOT EXISTS T_ROLES (
+CREATE TABLE IF NOT EXISTS T_ROLE (
  id_role INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  role VARCHAR(45) NOT NULL
 );
 
--- association table between USERS and ROLES ==> which roles has a user
-CREATE TABLE IF NOT EXISTS T_USERS_ROLES (
- id_users_roles INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- id_role_fk INT NOT NULL,
- id_user_fk INT NOT NULL
+-- association table between users and roles ==> what roles do a user have?
+CREATE TABLE IF NOT EXISTS T_USER_ROLE (
+ id_user_role INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id_user_fk INT NOT NULL,
+ id_role_fk INT NOT NULL
 );
-

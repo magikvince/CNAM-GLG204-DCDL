@@ -12,14 +12,14 @@ ADD CONSTRAINT `id_user_fk_player`
 ALTER TABLE `dcdl`.`t_role` 
 ADD INDEX `id_role_idx` (`id_role` ASC) VISIBLE;
 
--- association table between USERS and ROLES ==> which roles has a user
-ALTER TABLE `dcdl`.`t_users_roles` 
-ADD INDEX `id_users_roles_idx` (`id_users_roles` ASC) VISIBLE;
+-- association table between users and roles ==> what roles do a user have?
+ALTER TABLE `dcdl`.`t_user_role` 
+ADD INDEX `id_user_role_idx` (`id_user_role` ASC) VISIBLE;
 
-ALTER TABLE `dcdl`.`t_users_roles` 
-ADD CONSTRAINT `id_user_fk_roles`
+ALTER TABLE `dcdl`.`t_user_role` 
+ADD CONSTRAINT `id_user_fk_role`
   FOREIGN KEY (`id_user_fk`)
-  REFERENCES `dcdl`.`t_user` (`id_user`)
+  REFERENCES `dcdl`.`t_user` (`id_user`),
 ADD CONSTRAINT `id_role_fk`
   FOREIGN KEY (`id_role_fk`)
-  REFERENCES `dcdl`.`t_roles` (`id_role`);
+  REFERENCES `dcdl`.`t_role` (`id_role`);
