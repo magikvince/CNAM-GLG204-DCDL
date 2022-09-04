@@ -9,17 +9,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "T_ROLES")
+@Table(name = "T_ROLE")
 public class Role {
 	
 	@Id
 	private int idRole;
 	
 	private String role;
-	
-	@ManyToMany
-	@JoinColumn(name="id_user_fk")
-	private Collection<User> user;
 
 	public Role()
 	{
@@ -41,16 +37,6 @@ public class Role {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-	public Collection<User> getUser() {
-		return user;
-	}
-
-	public void setUser(Collection<User> user) {
-		this.user = user;
-	}
-	
-	
 	
 }
 
