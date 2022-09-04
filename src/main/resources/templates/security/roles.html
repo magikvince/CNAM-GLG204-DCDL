@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='manage roles') "></div>
+<body>
+	<h1>manage roles</h1>
+
+	<h2>List of existing roles</h2>
+
+	<table >
+	<tr><th>Id</th><th>Role</th></tr>
+	<tr th:each="role : ${roles}">
+		<td th:text = "${role.idRole}"></td>
+		<td th:text = "${role.role}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>
