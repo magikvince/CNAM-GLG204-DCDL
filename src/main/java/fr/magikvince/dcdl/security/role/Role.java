@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.security;
+package fr.magikvince.dcdl.security.role;
 
 import java.util.Collection;
 

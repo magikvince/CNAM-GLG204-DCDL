@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import fr.magikvince.dcdl.security.user.User;
+
 @Entity
 @Table(name = "T_CONNECTION")
 public class Connection {

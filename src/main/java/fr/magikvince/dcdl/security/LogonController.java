@@ -6,6 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import fr.magikvince.dcdl.security.user.User;
+import fr.magikvince.dcdl.security.user.UserNotFoundException;
+import fr.magikvince.dcdl.security.user.UserService;
+
 
 @Controller
 public class LogonController {
@@ -25,7 +29,7 @@ public class LogonController {
 	{
 		try {
 			//User found in database with this email
-			User dbUser = userservice.findUser(loggingUser.getEmail());
+			User dbUser = userservice.findUserByMail(loggingUser.getEmail());
 			
 			if ( dbUser.getEmail().equals(loggingUser.getEmail()) && dbUser.getPassword().equals(loggingUser.getPassword() ) )
 			{

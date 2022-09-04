@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.security;
+package fr.magikvince.dcdl.security.user;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

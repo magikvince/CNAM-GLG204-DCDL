@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.security;
+package fr.magikvince.dcdl.security.user;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

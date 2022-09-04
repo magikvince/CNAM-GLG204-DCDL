@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.security;
+package fr.magikvince.dcdl.security.userrole;
 
 import java.util.Collection;
 
@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import fr.magikvince.dcdl.security.role.Role;
+import fr.magikvince.dcdl.security.user.User;
 
 @Entity
 @Table(name = "T_USER_ROLE")
@@ -22,7 +25,7 @@ public class UserRole {
 	
 	@OneToOne
 	@JoinColumn(name="id_role_fk")
-	private Collection<Role> roles;
+	private Role role;
 	
 	public UserRole()
 	{
@@ -45,12 +48,22 @@ public class UserRole {
 		this.user = user;
 	}
 
-	public Collection<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	public String getPseudo()
+	{
+		return getUser().getPseudo();
+	}
+	
+	public String getRoleName()
+	{
+		return getRole().getRole();
 	}
 
 }

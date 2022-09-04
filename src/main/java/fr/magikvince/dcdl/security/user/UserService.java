@@ -1,4 +1,4 @@
-package fr.magikvince.dcdl.security;
+package fr.magikvince.dcdl.security.user;
 
 import java.util.Collection;
 
@@ -21,8 +21,12 @@ public class UserService {
 			throw new UserAlreadyExistException();
 	}
 
-	public User findUser(String email) throws UserNotFoundException{
+	public User findUserByMail(String email) throws UserNotFoundException{
 		return userRepository.findByEmail(email);
+	}
+	
+	public User findUserByPseudo(String pseudo) throws UserNotFoundException{
+		return userRepository.findByPseudo(pseudo);
 	}
 
 	public Collection<User> findAllUsers(){
