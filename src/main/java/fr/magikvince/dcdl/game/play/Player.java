@@ -7,7 +7,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import fr.magikvince.dcdl.security.User;
+import fr.magikvince.dcdl.security.user.User;
 
 @Entity
 @Table(name = "T_PLAYER")

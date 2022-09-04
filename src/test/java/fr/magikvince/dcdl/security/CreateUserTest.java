@@ -10,6 +10,12 @@ import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.magikvince.dcdl.security.user.User;
+import fr.magikvince.dcdl.security.user.UserAlreadyExistException;
+import fr.magikvince.dcdl.security.user.UserNotFoundException;
+import fr.magikvince.dcdl.security.user.UserRepository;
+import fr.magikvince.dcdl.security.user.UserService;
+
 public class CreateUserTest {
 
 
