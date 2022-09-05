@@ -23,3 +23,12 @@ ADD CONSTRAINT `id_user_fk_role`
 ADD CONSTRAINT `id_role_fk`
   FOREIGN KEY (`id_role_fk`)
   REFERENCES `dcdl`.`t_role` (`id_role`);
+
+ALTER TABLE `dcdl`.`t_connection` 
+ADD INDEX `id_connection_idx` (`id_connection` ASC) VISIBLE;
+
+ALTER TABLE `dcdl`.`t_connection` 
+ADD CONSTRAINT `id_user_fk_connection`
+  FOREIGN KEY (`id_user_fk`)
+  REFERENCES `dcdl`.`t_user` (`id_user`)
+;
