@@ -33,16 +33,12 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String registerPOST(Model model, User newUser)
 	{
-		newUser.setEnable(true);
+		newUser.setEnabled(true);
 		newUser.setBirthdate(newUser.getBirthdateAsText());
 		newUser.setCreationDateTime(LocalDateTime.now());
 		try {
-			//userservice.createUser(user);
 			userservice.createUser(newUser);
-			
-			var idNewUser = userservice.findUserByPseudo(newUser.getPseudo());
-			
-		} catch (UserAlreadyExistException | UserNotFoundException e) {
+		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 		}
 		return "redirect:/logon";
