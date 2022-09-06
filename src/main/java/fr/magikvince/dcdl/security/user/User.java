@@ -2,12 +2,18 @@ package fr.magikvince.dcdl.security.user;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import fr.magikvince.dcdl.security.role.Role;
 
 @Entity
 @Table(name = "T_USER")
@@ -38,6 +44,12 @@ public class User {
 	private boolean isOnline;
 	
 	
+	@ManyToMany
+	@JoinTable(name = "T_USER_ROLE",
+			   joinColumns = @JoinColumn(name = "id_user_fk"),
+			   inverseJoinColumns = @JoinColumn(name = "id_role_fk"))
+	private Collection<Role> roles;
+	
 	public User(String pseudo) {
 		this.pseudo = pseudo;
 	}
@@ -53,13 +65,13 @@ public class User {
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-
+	
 	public boolean isEnabled() {
 		return isEnabled;
 	}
 
-	public void setEnable(boolean isEnable) {
-		this.isEnabled = isEnable;
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
 	}
 
 	public LocalDateTime getCreationDateTime() {
@@ -119,14 +131,6 @@ public class User {
 	}
 	
 	public void setBirthdate(String birthdate) {
-		
-		//date format = DD/MM/YYYY or DD-MM-YYYY = 10 characters
-				
-		/* int day = Integer.valueOf(birthdate.substring(0,2));
-		int month = Integer.valueOf(birthdate.substring(3,5));
-		int year = Integer.valueOf((birthdate).substring(6,10));
-		this.birthdate = LocalDate.of(day, month, year); */
-		System.out.println("method setBirthdate : birthdate = " + birthdate);
 		this.birthdate = LocalDate.parse(birthdate);
 	}
 
@@ -162,6 +166,14 @@ public class User {
 		this.isOnline = isOnline;
 	}
 	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+
 	@Override
 	public String toString()
 	{
