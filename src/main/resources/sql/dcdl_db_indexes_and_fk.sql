@@ -32,3 +32,6 @@ ADD CONSTRAINT `id_user_fk_connection`
   FOREIGN KEY (`id_user_fk`)
   REFERENCES `dcdl`.`t_user` (`id_user`)
 ;
+
+ALTER TABLE `dcdl`.`t_room` 
+ADD INDEX `id_room_idx` (`id_room` ASC) VISIBLE;

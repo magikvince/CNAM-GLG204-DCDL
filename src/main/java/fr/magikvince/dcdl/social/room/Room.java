@@ -1,22 +1,39 @@
 package fr.magikvince.dcdl.social.room;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
-import fr.magikvince.dcdl.game.play.Player;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import fr.magikvince.dcdl.game.play.Player;
+import fr.magikvince.dcdl.security.user.User;
+
+@Entity
+@Table(name = "T_ROOM")
 public class Room {
 	
+	@Id
 	private int idRoom;
+	
 	private String name;
 	private int maxPlayers;
-	private String creator;
 	private String description;
 	
+	@Transient
 	private Collection<Player> players;
+	
+	public Room()
+	{
+		
+	}
 	
 	public Room ( String name)
 	{
 		this.name = name;
+		this.players = new ArrayList<Player>();
 	}
 
 	public int getIdRoom() {
@@ -43,20 +60,8 @@ public class Room {
 		this.maxPlayers = maxPlayers;
 	}
 
-	public String getCreator() {
-		return creator;
-	}
-
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
-
 	public Collection<Player> getPlayers() {
 		return players;
-	}
-
-	public void setPlayers(Collection<Player> players) {
-		this.players = players;
 	}
 
 	public String getDescription() {

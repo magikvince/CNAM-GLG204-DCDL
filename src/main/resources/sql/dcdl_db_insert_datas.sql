@@ -22,3 +22,9 @@ INSERT INTO `dcdl`.`t_user_role` (`id_user_fk`,`id_role_fk`) VALUES (2,2);
 
 INSERT INTO `dcdl`.`t_user_role` (`id_user_fk`,`id_role_fk`) VALUES (1,3);
 INSERT INTO `dcdl`.`t_user_role` (`id_user_fk`,`id_role_fk`) VALUES (2,3);
+
+
+INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('main room 1', 'main room 1 to welcome players when they log on','100');
+INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('club 1', 'club room 1','100');
+INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('tournaments 1', 'tournaments room 1','100');
+

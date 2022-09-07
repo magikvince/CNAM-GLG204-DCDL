@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='manage rooms') "></div>
+<body>
+	<h1>manage users</h1>
+
+	<h2>List of existing rooms</h2>
+
+	<table >
+	<tr><th>Id room</th><th>Name</th><th>Description</th><th>Max players</th></tr>
+	<tr th:each="room : ${rooms}">
+		<td th:text = "${room.idRoom}"></td>
+		<td th:text = "${room.Name}"></td>
+		<td th:text = "${room.Description}"></td>
+		<td th:text = "${room.MaxPlayers}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>

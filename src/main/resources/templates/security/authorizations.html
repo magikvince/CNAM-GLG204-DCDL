@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='manage authorizations') "></div>
+<body>
+	<h1>manage authorizations</h1>
+
+	<h2>List of existing authorizations for Users</h2>
+
+	<table >
+	<tr><th>id authorization</th><th>id user</th><th>User</th><th>id role</th><th>Role</th></tr>
+	<tr th:each="authorization : ${authorizations}">
+		<td th:text = "${authorization.idUserRole}"></td>
+		<td th:text = "${authorization.user.idUser}"></td>
+		<td th:text = "${authorization.pseudo}"></td>
+		<td th:text = "${authorization.role.idRole}"></td>
+		<td th:text = "${authorization.roleName}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>

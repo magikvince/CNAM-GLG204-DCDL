@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import fr.magikvince.dcdl.security.role.*;
 import fr.magikvince.dcdl.security.user.*;
+import fr.magikvince.dcdl.security.userrole.UserRole;
+import fr.magikvince.dcdl.security.userrole.UserRoleService;
+import fr.magikvince.dcdl.social.room.Room;
+import fr.magikvince.dcdl.social.room.RoomService;
 
 @Controller
 public class AdminPageController {
@@ -18,6 +22,12 @@ public class AdminPageController {
 	
 	@Autowired
 	RoleService roleservice;
+	
+	@Autowired
+	UserRoleService userRoleService;
+	
+	@Autowired
+	RoomService roomService;
 
 	@GetMapping("/admin")
 	public String adminPage()
@@ -40,4 +50,22 @@ public class AdminPageController {
 		model.addAttribute("roles", roles);
 		return "security/roles.html";
 	}
+	
+	@GetMapping("/authorizations")
+	public String showAuthorizations(Model model)
+	{
+		Collection<UserRole> userRoles = userRoleService.findAllUserRole();
+		model.addAttribute("authorizations", userRoles);
+		return "security/authorizations.html";
+	}
+	
+	@GetMapping("/rooms")
+	public String showRooms(Model model)
+	{
+		Collection<Room> rooms = roomService.findAllRooms();
+		model.addAttribute("rooms", rooms);
+		return "social/rooms.html";
+	}
+	
+	
 }

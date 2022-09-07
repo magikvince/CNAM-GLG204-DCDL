@@ -3,10 +3,16 @@ package fr.magikvince.dcdl.social.room;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import fr.magikvince.dcdl.security.user.User;
 
 @Service
 public class RoomService {
+	
+	@Autowired
+	RoomRepository roomRepository;
 
 	private Collection<Room> rooms;
 	
@@ -31,6 +37,10 @@ public class RoomService {
 	public void deleteRoom(Room room)
 	{
 		rooms.remove(room);
+	}
+
+	public Collection<Room> findAllRooms() {
+		return (Collection<Room>) roomRepository.findAll();
 	}
 	
 }
