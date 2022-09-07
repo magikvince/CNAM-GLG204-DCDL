@@ -28,13 +28,14 @@ public class LogonController {
 	public String logonPOST(Model model, User loggingUser)
 	{
 		try {
-			//User found in database with this email
+			//User found in database with his email or pseudo !!
 			User dbUser = userservice.findUserByMail(loggingUser.getEmail());
 			
 			if ( dbUser.getEmail().equals(loggingUser.getEmail()) && dbUser.getPassword().equals(loggingUser.getPassword() ) )
 			{
 				System.out.println("User " + dbUser.getPseudo() + " is successfully logged on !");
 				model.addAttribute("loggingUser", dbUser);
+				
 				
 			}
 			else
@@ -48,6 +49,8 @@ public class LogonController {
 			e.printStackTrace();
 		}
 		
+		//if authentification is OK 
+		//adding the user to the main room player list
 		return "redirect:/";
 	}
 	

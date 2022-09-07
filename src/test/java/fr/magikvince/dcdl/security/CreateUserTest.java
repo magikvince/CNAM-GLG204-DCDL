@@ -29,7 +29,7 @@ public class CreateUserTest {
 	public void CreateUser()
 	{
 		User user = new User();
-		user.setEnable(true);
+		user.setEnabled(true);
 		user.setPseudo("testuser1");
 		user.setEmail("testuser1@gmail.com");
 		user.setFirstname("Vincent");
@@ -54,7 +54,7 @@ public class CreateUserTest {
 		
 		User usercreated = null;
 		try {
-			usercreated = userservice.findUser(user.getEmail());
+			usercreated = userservice.findUserByMail(user.getEmail());
 		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

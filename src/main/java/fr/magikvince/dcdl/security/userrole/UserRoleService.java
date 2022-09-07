@@ -16,7 +16,7 @@ public class UserRoleService {
 	
 	public void createUserRole(UserRole userRole) throws UserRoleAlreadyExistException {
 		// 
-		if ( ! userRoleRepository.existsByUserRole(userRole.getPseudo(), userRole.getRoleName()) )
+		if ( ! userRoleRepository.existsByUserAndRole(userRole.getPseudo(), userRole.getRoleName()) )
 			userRoleRepository.save(userRole);
 		else
 			throw new UserRoleAlreadyExistException();

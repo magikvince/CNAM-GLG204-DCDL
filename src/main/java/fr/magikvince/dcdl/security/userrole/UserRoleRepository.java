@@ -9,8 +9,7 @@ import fr.magikvince.dcdl.security.user.User;
 
 @Repository
 public interface UserRoleRepository extends CrudRepository<UserRole, Integer> 	{
+		public Collection<UserRole> findAllRolesByUser(User user);
 
-	public boolean existsByUserRole(String pseudo, String role);
-
-	public Collection<UserRole> findAllRolesByUser(User user);
+		public boolean existsByUserAndRole(String pseudo, String role);
 }
