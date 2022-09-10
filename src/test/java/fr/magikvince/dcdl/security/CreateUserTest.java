@@ -35,7 +35,7 @@ public class CreateUserTest {
 		user.setFirstname("Vincent");
 		user.setLastname("NAVARRO");
 		user.setCity("MELUN");
-		user.setPassword("password");
+		user.setPassword("password");// appel de BCrypt??!!!
 		user.setCountry("FRANCE");
 		
 		user.setCreationDateTime(LocalDateTime.now());
@@ -44,7 +44,7 @@ public class CreateUserTest {
 		
 		System.out.println("user : " + user);
 		try {
-			userservice.createUser(user);
+			userservice.createUserByPseudo(user);
 		} catch (UserAlreadyExistException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

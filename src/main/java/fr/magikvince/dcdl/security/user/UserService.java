@@ -13,9 +13,17 @@ public class UserService {
 	@Autowired 
 	UserRepository userRepository;
 
-	public void createUser(User user) throws UserAlreadyExistException {
+	public void createUserByMail(User user) throws UserAlreadyExistException {
 		// 
 		if ( ! userRepository.existsByEmail(user.getEmail() ) )
+			userRepository.save(user);
+		else
+			throw new UserAlreadyExistException();
+	}
+	
+	public void createUserByPseudo(User user) throws UserAlreadyExistException {
+		// 
+		if ( ! userRepository.existsByPseudo(user.getPseudo() ) )
 			userRepository.save(user);
 		else
 			throw new UserAlreadyExistException();

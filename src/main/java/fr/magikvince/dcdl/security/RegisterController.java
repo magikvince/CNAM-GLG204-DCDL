@@ -37,7 +37,7 @@ public class RegisterController {
 		newUser.setBirthdate(newUser.getBirthdateAsText());
 		newUser.setCreationDateTime(LocalDateTime.now());
 		try {
-			userservice.createUser(newUser);
+			userservice.createUserByPseudo(newUser);
 		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 		}

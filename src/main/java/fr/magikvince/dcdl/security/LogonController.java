@@ -29,7 +29,8 @@ public class LogonController {
 	{
 		try {
 			//User found in database with his email or pseudo !!
-			User dbUser = userservice.findUserByMail(loggingUser.getEmail());
+			//User dbUser = userservice.findUserByMail(loggingUser.getEmail());
+			User dbUser = userservice.findUserByPseudo(loggingUser.getPseudo());
 			
 			if ( dbUser.getEmail().equals(loggingUser.getEmail()) && dbUser.getPassword().equals(loggingUser.getPassword() ) )
 			{

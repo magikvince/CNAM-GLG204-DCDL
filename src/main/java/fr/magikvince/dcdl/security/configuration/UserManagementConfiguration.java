@@ -15,15 +15,16 @@ public class UserManagementConfiguration
 	  @Bean
 	  public UserDetailsService userDetailsService(DataSource dataSource) 
 	  {
-	     String usersByUsernameQuery = "select pseudo, password, is_enable from T_USERS where pseudo = ?";
-	     String authsByUserQuery =  
-	    		 "select pseudo, authority from T_AUTHORITIES a, T_USERS u"
-	     		+ "where pseudo = ? and u.id_user = a.id_user_fk";
+	     String userByUsernameQuery = "select pseudo, password, is_enabled from T_USER where pseudo = ?";
+	     String rolesByUserQuery =  
+	    		 "select pseudo, role from T_ROLE r, T_USER u, T_USER_ROLE ur "
+	     		+ "where pseudo = ? and u.id_user = ur.id_user_fk"
+	     		+ "and r.id_role = ur.id_role_fk";
 	        
          var userDetailsManager = new JdbcUserDetailsManager(dataSource);
         
-         userDetailsManager.setUsersByUsernameQuery(usersByUsernameQuery);
-         userDetailsManager.setAuthoritiesByUsernameQuery(authsByUserQuery);
+         userDetailsManager.setUsersByUsernameQuery(userByUsernameQuery);
+         userDetailsManager.setAuthoritiesByUsernameQuery(rolesByUserQuery);
 	    
          return userDetailsManager;
 	  }

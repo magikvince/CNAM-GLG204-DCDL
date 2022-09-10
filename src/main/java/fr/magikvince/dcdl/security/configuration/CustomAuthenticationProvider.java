@@ -22,14 +22,14 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
   @Override
   public Authentication authenticate(Authentication authentication) 
   {
-    String username = authentication.getName();
+    String pseudo = authentication.getName();
     String password = authentication.getCredentials().toString();
 
-    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+    UserDetails userDetails = userDetailsService.loadUserByUsername(pseudo);
 
     if (passwordEncoder.matches(password, userDetails.getPassword())) {
       return new UsernamePasswordAuthenticationToken(
-            username, 
+            pseudo, 
             password, 
             userDetails.getAuthorities());
     } else {
