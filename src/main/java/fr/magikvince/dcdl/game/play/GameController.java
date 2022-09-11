@@ -22,4 +22,22 @@ public class GameController {
 		return "game/games.html";
 	}
 	
+	@GetMapping("/create-game")
+	public String createGameGET(Model model)
+	{
+		return "game/create-game.html";
+	}
+	
+	@PostMapping("/create-game")
+	public String createGamePOST(Model model)
+	{
+		return "game/create-game.html";
+	}
+	
+	@GetMapping("/list-games")
+	public String listGamesGET(Model model)
+	{
+		return "game/list-games.html";
+	}
+	
 }
