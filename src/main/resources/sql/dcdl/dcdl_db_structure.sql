@@ -7,6 +7,13 @@ DROP TABLE if exists T_CONNECTION CASCADE;
 DROP TABLE if exists T_USER CASCADE;
 DROP TABLE if exists T_ROOM CASCADE;
 
+DROP TABLE if exists T_LEAGUE CASCADE;
+DROP TABLE if exists T_SOLUTION CASCADE;
+DROP TABLE if exists T_DRAW CASCADE;
+DROP TABLE if exists T_GAME_PLAYER CASCADE;
+DROP TABLE if exists T_GAME CASCADE;
+
+
 CREATE TABLE T_PLAYER (
  id_player INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  id_user_fk INT,
@@ -57,4 +64,32 @@ CREATE TABLE IF NOT EXISTS T_ROOM (
  max_players INT
 );
 
+CREATE TABLE IF NOT EXISTS T_LEAGUE (
+ id_league INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ league VARCHAR(50) NOT NULL,
+ description VARCHAR(200) NOT NULL,
+ time_count INT,
+ time_letter INT
+);
 
+CREATE TABLE IF NOT EXISTS T_GAME (
+ id_game INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id_league_fk INT NOT NULL,
+ -- private or public
+ game_privacy VARCHAR(30) NOT NULL,
+ -- friendly or ranker 
+ game_type VARCHAR(30) NOT NULL, 
+ description VARCHAR(200) NOT NULL,
+ status VARCHAR(30) NOT NULL,
+ start_time DATETIME NOT NULL,
+ end_time DATETIME NOT NULL,
+ winner INT,
+ loser INT
+);
+
+-- association table between players and games, to know which player participate to the game 
+CREATE TABLE IF NOT EXISTS T_GAME_PLAYER (
+ id_game_player INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id_game_fk INT NOT NULL,
+ id_player_fk INT NOT NULL
+);

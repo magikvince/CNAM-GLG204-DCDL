@@ -35,3 +35,7 @@ ADD CONSTRAINT `id_user_fk_connection`
 
 ALTER TABLE `dcdl`.`t_room` 
 ADD INDEX `id_room_idx` (`id_room` ASC) VISIBLE;
+
+ALTER TABLE `dcdl`.`t_league` 
+ADD INDEX `id_league_idx` (`id_league` ASC) VISIBLE;
+

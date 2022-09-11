@@ -10,7 +10,7 @@ public class League {
 	
 	@Id
 	private int LeagueId;
-	private String leagueName;
+	private String league;
 	private int timeCount;
 	private int timeLetter;
 	private String description;
@@ -29,12 +29,12 @@ public class League {
 		LeagueId = leagueId;
 	}
 
-	public String getLeagueName() {
-		return leagueName;
+	public String getLeague() {
+		return league;
 	}
 
-	public void setLeagueName(String leagueName) {
-		this.leagueName = leagueName;
+	public void setLeague(String league) {
+		this.league = league;
 	}
 
 	public int getTimeCount() {

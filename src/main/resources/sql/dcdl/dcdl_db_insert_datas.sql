@@ -28,3 +28,9 @@ INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('main 
 INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('club 1', 'club room 1','100');
 INSERT INTO `dcdl`.`t_room`(`name`, `description`, `max_players`) VALUES ('tournaments 1', 'tournaments room 1','100');
 
+--
+INSERT INTO `dcdl`.`t_league`(`league`,`description`,`time_count`,`time_letter`) VALUES ('bronze', 'league for beginner', 180, 180);
+INSERT INTO `dcdl`.`t_league`(`league`,`description`,`time_count`,`time_letter`) VALUES ('silver', 'league for mid beginner', 150, 150);
+INSERT INTO `dcdl`.`t_league`(`league`,`description`,`time_count`,`time_letter`) VALUES ('gold', 'league for medium players', 120, 120);
+INSERT INTO `dcdl`.`t_league`(`league`,`description`,`time_count`,`time_letter`) VALUES ('platinium', 'league for good players', 90, 90);
+INSERT INTO `dcdl`.`t_league`(`league`,`description`,`time_count`,`time_letter`) VALUES ('diamond', 'league for experts', 60, 60);
