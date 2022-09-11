@@ -35,8 +35,6 @@ public class DrawCount extends Draw {
 		this.numbers = numbers;
 	}
 
-	//a revoir !!!! boucle infinie???
-	
 	public Integer getNumberOfOccurrencesInList(int number)
 	{
 		int occurenceCount = 0;
