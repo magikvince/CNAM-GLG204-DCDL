@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='list games') "></div>
+<body>
+	<h1>manage games</h1>
+
+	<h2>List of available games</h2>
+
+	<table >
+	<tr><th>Game Id</th><th>description</th><th>League</th><th>game type</th><th>creator</th></tr>
+	<tr th:each="game : ${games}">
+		<td th:text = "${game.idGame}"></td>
+		<td th:text = "${game.description}"></td>
+		<td th:text = "${game.leagueName}"></td>
+		<td th:text = "${game.gameType}"></td>
+		<td th:text = "${game.creator.pseudo}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>

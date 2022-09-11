@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='create game') "></div>
+<body>
+	<h1>Welcome on DCDL web application</h1>	
+	
+	<h1>create a new game</h1>
+
+	<p>Please choose your options to create a new game:</p>
+	
+	<form class="createGameForm" method="POST" th:action="@{/create-game}" th:object="${newGame}">
+		<table>
+			<tr>
+				<td><label for="gameType">game Type:</label></td>
+				<td><input type="radio" id="gameType" size=30 th:field="gameType"></input></td>
+			</tr>
+			<tr>
+				<td><label for="privacy">privacy:</label></td>
+				<td><input type="text" id="privacy" size=30 th:field="*{gamePrivacy}"></input></td>
+			</tr>
+						
+			<tr>
+				<td><label for="league">league:</label></td>
+				<td><input type="text" id="league" size=30 th:field="*{league}"></input></td>
+			</tr>
+			
+			<tr>
+				<td><label for="pseudo">description:</label></td>
+				<td><input type="text" id="description" size=100 th:field="*{description}"></input></td>
+			</tr>
+			
+		</table><br>
+		<input type="submit" value="go"></input>
+	</form>
+	<br>
+	
+	
+	<div th:replace="footer :: index"></div>
+	<br><br>
+		
+	<div th:replace="footer :: index"></div>
+	
+</body>
+</html>
