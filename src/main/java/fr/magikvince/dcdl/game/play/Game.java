@@ -5,6 +5,9 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import fr.magikvince.dcdl.game.draw.Draw;
@@ -15,13 +18,22 @@ import fr.magikvince.dcdl.game.league.League;
 public class Game {
 
 	@Id
-	private int gameId;
+	private int idGame;
+	
+	@OneToOne
+	@JoinColumn(name="id_player_fk")
 	private Player creator;
+	
 	private LocalDate startTime;
 	private LocalDate endTime;
 	private String description;
 	
+	@OneToMany
+	@JoinColumn(name="id_player_fk")
 	private Collection<Player> players;
+	
+	@OneToMany
+	@JoinColumn(name="id_draw_fk")
 	private Collection<Draw> draws;
 	
 	private Player winner;
@@ -40,12 +52,12 @@ public class Game {
 		
 	}
 
-	public int getGameId() {
-		return gameId;
+	public int getIdGame() {
+		return idGame;
 	}
 
-	public void setGameId(int gameId) {
-		this.gameId = gameId;
+	public void setIdGame(int idGame) {
+		this.idGame = idGame;
 	}
 
 	public Player getCreator() {
