@@ -1,10 +1,29 @@
 package fr.magikvince.dcdl.game.solution;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "T_SOLUTION_DETAIL")
 public class SolutionDetail {
 	
+	@Id
+	private int idSolutionDetail;
+	
+	@ManyToOne
+	@JoinColumn(name="id_solution_fk")
+	private Solution solution;
 	private int number1;
 	private int number2;
+	
+	@Transient
 	private Operation operation;
+	
+	private String operationAsText;
 	
 	//order in global solution
 	private int order;
@@ -37,6 +56,14 @@ public class SolutionDetail {
 
 	public void setOperation(Operation operation) {
 		this.operation = operation;
+	}
+	
+	public String getOperationAsText() {
+		return operationAsText;
+	}
+
+	public void setOperationAsText(String operationAsText) {
+		this.operationAsText = operationAsText;
 	}
 
 	public int getOrder() {
