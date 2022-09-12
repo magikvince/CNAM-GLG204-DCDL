@@ -4,7 +4,7 @@ import java.util.Date;
 
 public abstract class Draw {
 
-	private int id;
+	private int idDraw;
 	private Date date;
 	private String draw;
 	
@@ -15,13 +15,12 @@ public abstract class Draw {
 		this.date = new Date();
 	}
 	
-
-	public int getId() {
-		return id;
+	public int getIdDraw() {
+		return idDraw;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdDraw(int idDraw) {
+		this.idDraw = idDraw;
 	}
 
 	public Date getDate() {
