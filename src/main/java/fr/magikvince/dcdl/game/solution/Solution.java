@@ -4,6 +4,9 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import fr.magikvince.dcdl.game.draw.Draw;
@@ -14,11 +17,18 @@ import fr.magikvince.dcdl.game.play.Player;
 public class Solution {
 
 	@Id
-	private int solutionId;
+	private int idSolution;
 	
+	@ManyToOne
+	@JoinColumn(name="id_draw_fk")
 	private Draw draw;
+	
+	@ManyToOne
+	@JoinColumn(name="id_player_fk")
 	private Player player;
 	
+	@OneToMany
+	@JoinColumn(name="id_solution_fk")
 	private Collection<SolutionDetail> solutionDetails;
 	
 	private String result;
@@ -29,12 +39,13 @@ public class Solution {
 		
 	}
 
-	public int getSolutionId() {
-		return solutionId;
+
+	public int getIdSolution() {
+		return idSolution;
 	}
 
-	public void setSolutionId(int solutionId) {
-		this.solutionId = solutionId;
+	public void setIdSolution(int idSolution) {
+		this.idSolution = idSolution;
 	}
 
 	public Draw getDraw() {
