@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GameRepository extends CrudRepository<Game, Integer> 	{
 
-	public boolean existsByName(String name);
-	public Game findByName(String name);
+	public Game findByStatus(String status);
+	public Game findByCreator(Player creator);
 	
 }

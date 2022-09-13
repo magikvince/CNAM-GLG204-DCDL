@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,22 +30,29 @@ public class Game {
 	private String description;
 	
 	@OneToMany
-	@JoinColumn(name="id_player_fk")
+	@JoinTable(name="id_player_fk")
 	private Collection<Player> players;
 	
 	@OneToMany
-	@JoinColumn(name="id_draw_fk")
+	@JoinTable(name="id_draw_fk")
 	private Collection<Draw> draws;
 	
+	@OneToOne
+	@JoinColumn(name="winner")
 	private Player winner;
+	
+	@OneToOne
+	@JoinColumn(name="loser")
 	private Player Loser;
 	
 	private GameStatus status;
 	
-	private GameType gameType;// ranked or friendly
+	private GameType type;// ranked or friendly
 	
-	private GamePrivacy gamePrivacy;// public or private
+	private GamePrivacy privacy;// public or private
 	
+	@OneToOne
+	@JoinColumn(name="id_league_fk")
 	private League league; 
 	
 	public Game()
@@ -132,20 +140,20 @@ public class Game {
 		this.status = status;
 	}
 
-	public GameType getGameType() {
-		return gameType;
+	public GameType getType() {
+		return type;
 	}
 
-	public void setGameType(GameType gameType) {
-		this.gameType = gameType;
+	public void setType(GameType type) {
+		this.type = type;
 	}
 
-	public GamePrivacy getGamePrivacy() {
-		return gamePrivacy;
+	public GamePrivacy getPrivacy() {
+		return privacy;
 	}
 
-	public void setGamePrivacy(GamePrivacy gamePrivacy) {
-		this.gamePrivacy = gamePrivacy;
+	public void setPrivacy(GamePrivacy privacy) {
+		this.privacy = privacy;
 	}
 
 	public League getLeague() {
