@@ -9,8 +9,10 @@ DROP TABLE if exists T_ROOM CASCADE;
 
 DROP TABLE if exists T_LEAGUE CASCADE;
 DROP TABLE if exists T_SOLUTION CASCADE;
+DROP TABLE if exists T_SOLUTION_DETAIL CASCADE;
 DROP TABLE if exists T_DRAW CASCADE;
-DROP TABLE if exists T_GAME_PLAYER CASCADE;
+DROP TABLE if exists T_GAME_PLAYERS CASCADE;
+DROP TABLE if exists T_GAME_DRAWS CASCADE;
 DROP TABLE if exists T_GAME CASCADE;
 
 
@@ -76,9 +78,9 @@ CREATE TABLE IF NOT EXISTS T_GAME (
  id_game INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  id_league_fk INT NOT NULL,
  -- private or public
- game_privacy VARCHAR(30) NOT NULL,
+ privacy VARCHAR(30) NOT NULL,
  -- friendly or ranker 
- game_type VARCHAR(30) NOT NULL, 
+ type VARCHAR(30) NOT NULL, 
  description VARCHAR(200) NOT NULL,
  status VARCHAR(30) NOT NULL,
  start_time DATETIME NOT NULL,
@@ -88,8 +90,43 @@ CREATE TABLE IF NOT EXISTS T_GAME (
 );
 
 -- association table between players and games, to know which player participate to the game 
-CREATE TABLE IF NOT EXISTS T_GAME_PLAYER (
+CREATE TABLE IF NOT EXISTS T_GAME_PLAYERS (
  id_game_player INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  id_game_fk INT NOT NULL,
  id_player_fk INT NOT NULL
 );
+
+-- association table between game and draws, to know what draws are in the game 
+CREATE TABLE IF NOT EXISTS T_GAME_DRAWS (
+ id_game_draw INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id_game_fk INT NOT NULL,
+ id_draw_fk INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS T_DRAW (
+id_draw INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+draw VARCHAR(20) NOT NULL,
+draw_type VARCHAR(10) NOT NULL,
+date DATETIME,
+count INT,
+wished_consonents INT,
+wished_vowels INT
+);
+
+CREATE TABLE IF NOT EXISTS T_SOLUTION (
+id_solution INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+id_draw_fk INT NOT NULL,
+id_player_fk INT NOT NULL,
+result VARCHAR(10)
+);
+
+CREATE TABLE IF NOT EXISTS T_SOLUTION_DETAIL(
+id_solution_detail INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+id_solution_fk INT NOT NULL,
+number1 INT NOT NULL,
+number2 INT NOT NULL,
+operation_as_text VARCHAR(20),
+order_in_solution INT,
+result INT 
+);
+
