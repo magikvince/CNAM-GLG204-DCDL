@@ -1,18 +1,30 @@
 package fr.magikvince.dcdl.game.draw;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="DrawType")
 public abstract class Draw {
 
+	@Id
 	private int idDraw;
-	private Date date;
+	private LocalDateTime date;
+	//private DrawType drawType;
 	private String draw;
 	
 	public abstract void randomDraw() throws DrawException;
 	
 	public Draw()
 	{
-		this.date = new Date();
+		
 	}
 	
 	public int getIdDraw() {
@@ -23,11 +35,11 @@ public abstract class Draw {
 		this.idDraw = idDraw;
 	}
 
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

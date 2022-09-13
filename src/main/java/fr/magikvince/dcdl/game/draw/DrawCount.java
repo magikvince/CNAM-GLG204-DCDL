@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
+@Entity
+@DiscriminatorValue("COUNT")
 public class DrawCount extends Draw {
 
 	private int count;
+	
+	@Transient
 	private List<Integer> numbers;
 	
 	private final int maxNumbers = 6;

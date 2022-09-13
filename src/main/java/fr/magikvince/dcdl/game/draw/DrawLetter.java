@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
+@Entity
+@DiscriminatorValue("LETTER")
 public class DrawLetter extends Draw 
 {
-	private List<Letter> letters;
+	@Transient
 	private Random random;
+	
+	@Transient
+	private List<Letter> letters;
+	
 	private final int maxLetters = 10;
 	private int wishedVowels;
 	private int wishedConsonents;
