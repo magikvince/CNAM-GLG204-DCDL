@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LeagueRepository extends CrudRepository<League, Integer> 	{
 
-	public boolean existsByLeagueName(String name);
-	public League findByLeagueName(String name);
+	public boolean existsByLeague(String league);
+	public League findByLeague(String league);
 }
