@@ -12,17 +12,29 @@
 	<form class="createGameForm" method="POST" th:action="@{/create-game}" th:object="${newGame}">
 		<table>
 			<tr>
-				<td><label for="gameType">game Type:</label></td>
-				<td><input type="radio" id="gameType" size=30 th:field="gameType"></input></td>
+				<td>game type</td>
+				<td>
+					<label for="type">friendly</label><input type="radio" id="friendly" name="type"  value="friendly" th:field="*{type}" />
+					<label for="type">ranked</label>  <input type="radio" id="ranked" name="type"  value="ranked" th:field="*{type}" />
+				</td>
 			</tr>
 			<tr>
-				<td><label for="privacy">privacy:</label></td>
-				<td><input type="text" id="privacy" size=30 th:field="*{gamePrivacy}"></input></td>
+				<td>privacy</td>
+				<td>
+					<label for="privacy">public</label><input type="radio" id="public" name="privacy" th:field="*{privacy}"/>
+					<label for="privacy">private</label><input type="radio" id="private" name="privacy" th:field="*{privacy}"/>
+				</td>
 			</tr>
 						
 			<tr>
 				<td><label for="league">league:</label></td>
-				<td><input type="text" id="league" size=30 th:field="*{league}"></input></td>
+				<td><select th:field="*{league}" id=league >
+						<option th:each="league : ${leagues}"
+							th:value="${league.idLeague}" 
+							th:text = "${league.league} + ' : ' + ${league.description}">
+						</option>
+					</select>
+				</td>
 			</tr>
 			
 			<tr>
