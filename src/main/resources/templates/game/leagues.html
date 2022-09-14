@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="header :: head (title='manage leagues') "></div>
+<body>
+	<h1>manage leagues</h1>
+
+	<h2>List of existing leagues</h2>
+
+	<table >
+	<tr><th>Id league</th><th>league</th><th>Description</th><th>time count</th><th>time letters</th></tr>
+	<tr th:each="league : ${leagues}">
+		<td th:text = "${league.idLeague}"></td>
+		<td th:text = "${league.league}"></td>
+		<td th:text = "${league.description}"></td>
+		<td th:text = "${league.timeCount}"></td>
+		<td th:text = "${league.timeLetter}"></td>
+	</tr> 
+	</table>
+	
+	<br><br>
+	<div th:replace="footer :: admin"></div>
+	<div th:replace="footer :: index"></div>
+</body>
+</html>

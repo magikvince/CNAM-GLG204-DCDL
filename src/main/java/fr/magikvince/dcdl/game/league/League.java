@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class League {
 	
 	@Id
-	private int LeagueId;
+	private int idLeague;
 	private String league;
 	private int timeCount;
 	private int timeLetter;
@@ -20,14 +20,14 @@ public class League {
 		
 	}
 
-	public int getLeagueId() {
-		return LeagueId;
+	public int getIdLeague() {
+		return idLeague;
 	}
 
-
-	public void setLeagueId(int leagueId) {
-		LeagueId = leagueId;
+	public void setIdLeague(int idLeague) {
+		this.idLeague = idLeague;
 	}
+
 
 	public String getLeague() {
 		return league;

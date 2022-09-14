@@ -1,12 +1,8 @@
 package fr.magikvince.dcdl.game.league;
 
-import java.util.ArrayList;
 import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import fr.magikvince.dcdl.security.user.User;
 
 @Service
 public class LeagueService {
@@ -19,10 +15,9 @@ public class LeagueService {
 	{
 		
 	}
-	
 
-
-	
-	
-	
+	public Collection<League> findAllLeagues() {
+		// TODO Auto-generated method stub
+		return (Collection<League>) leagueRepository.findAll();
+	}
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import fr.magikvince.dcdl.game.league.League;
+import fr.magikvince.dcdl.game.league.LeagueService;
 import fr.magikvince.dcdl.security.role.*;
 import fr.magikvince.dcdl.security.user.*;
 import fr.magikvince.dcdl.security.userrole.UserRole;
@@ -28,6 +30,9 @@ public class AdminPageController {
 	
 	@Autowired
 	RoomService roomService;
+	
+	@Autowired
+	LeagueService leagueService;
 
 	@GetMapping("/admin")
 	public String adminPage()
@@ -65,6 +70,14 @@ public class AdminPageController {
 		Collection<Room> rooms = roomService.findAllRooms();
 		model.addAttribute("rooms", rooms);
 		return "social/rooms.html";
+	}
+	
+	@GetMapping("/leagues")
+	public String showLeagues(Model model)
+	{
+		Collection<League> leagues = leagueService.findAllLeagues();
+		model.addAttribute("leagues", leagues);
+		return "game/leagues.html";
 	}
 	
 	
